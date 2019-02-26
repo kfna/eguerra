@@ -1,0 +1,324 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>Nertek | CMS</title>
+     <meta name="description" content="DESCRIPTION">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+     <script src="js/dist/Chart.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+
+
+    <link rel="stylesheet" href="css/app.css">
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+ </head>
+
+ <body>
+  <header></header>
+  <main id="app">
+    <section class="panel left">
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Clientes</a></li>
+          <li><a href="#"><i class="fas fa-money-check-alt"></i> Catalogo de </a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="panel right">
+
+    <style>
+    .page { border: #e4e4e4 solid 1px; max-width: 1080px; margin: auto; background-color: #fbfbfb; padding: 25px;}
+    </style>
+    <section class="page cliente">
+    <h1>Clientes</h1>
+
+    <form id="frmCliente" name="frmCliente" data-model="cliente">
+      <h1>Nuevo Cliente</h1>
+      <div class="row">
+        <label>Nombre Completo</label>
+        <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>E-mail</label>
+        <input type="text" placeholder="E-mail" id="email" name="email" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>Telefono</label>
+        <input type="text" placeholder="Telefono" id="telefono" name="telefono" class="isRequired" />
+      </div>
+      <div class="row">
+        <div class="col"><a href="#" data-action="save" data-form="frmCliente" class="btn onClick">Guardar</a></div>
+      </div>
+    </form>
+
+    <div class="datagrid">
+      <table>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Nombre</th>
+          <th>E-mail</th>
+          <th>Telefono</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">1</td>
+            <td>Luis Cruz</td>
+            <td>luis@kafeina.com</td>
+            <td>818.362.3411</td>
+            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+    </section>
+
+    <section class="page servicios">
+    <h1>Servicios</h1>
+
+    <form id="frmServicio" name="frmServicio" data-model="servicio">
+      <h1>Nuevo Servicio</h1>
+      <div class="row">
+        <label>Nombre Completo</label>
+        <input type="text" placeholder="Servicio" id="servicio" name="servicio" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>Precio</label>
+        <input type="text" placeholder="$0.00" id="precio" name="precio" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>Descripción</label>
+        <input type="text" placeholder="" id="descripcion" name="descripcion" class="isRequired" />
+      </div>
+      <div class="row">
+        <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
+      </div>
+    </form>
+
+    <div class="datagrid">
+      <table>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Descripción</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">1</td>
+            <td>Luis Cruz</td>
+            <td>luis@kafeina.com</td>
+            <td>818.362.3411</td>
+            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+    </section>
+
+    <section class="page usuario">
+    <h1>Usuarios (Staff)</h1>
+
+    <form id="frmUsuario" name="frmUsuario" data-model="usuario">
+      <h1>Nuevo Usuario</h1>
+      <div class="row">
+        <label>Nombre Completo</label>
+        <input type="text" placeholder="Nombre" id="nombre" name="nombre" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>E-mail</label>
+        <input type="text" placeholder="E-mail" id="email" name="email" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>Contraseña</label>
+        <input type="password" placeholder="Contraseña" id="password" name="password" class="isRequired" />
+      </div>
+      <div class="row">
+        <label>Confirmar Contraseña</label>
+        <input type="password" placeholder="Confirmar Contraseña" id="passwordv" name="passwordv" class="isRequired" />
+      </div>
+      <div class="row">
+        <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
+      </div>
+    </form>
+
+    <div class="datagrid">
+      <table>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Descripción</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">1</td>
+            <td>Luis Cruz</td>
+            <td>luis@kafeina.com</td>
+            <td>818.362.3411</td>
+            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+    </section>
+
+
+    <section class="page venta">
+    <h1>Venta</h1>
+
+    <div class="row c2">
+      <div class="col">
+        <form id="frmVenta" name="frmVenta" data-model="venta">
+          <h1>Nueva Venta</h1>
+          <div class="row">
+            <label>Cliente</label>
+            <select data-src="cliente" data-exec="getClientes">
+              <option>(Seleccione una Opción)</option>
+          </select>
+          </div>
+          <div class="row">
+            <label>Usuario (Staff)</label>
+            <input type="text" placeholder="0" id="id_usuario" name="id_usuario" class="isRequired" value="0" readonly />
+          </div>
+          <div class="row">
+            <label>Fecha</label>
+            <input type="text" placeholder="Fecha" id="fecha" name="fecha" class="isRequired" />
+          </div>
+
+          <div class="row">
+            <label>Comentarios Internos</label>
+            <input type="text" placeholder="Comentarios Internos" id="fecha" name="fecha" class="isRequired" />
+          </div>
+
+          <div class="row">
+            <label>Comentarios Externos</label>
+            <input type="text" placeholder="Comentarios Externos" id="fecha" name="fecha" class="isRequired" />
+          </div>
+
+          <div class="row">
+            <label>Productos y Servicios</label>
+            <div class="datagrid">
+              <table>
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Servicio / Producto</th>
+                  <th>Precio</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td align="center">1</td>
+                    <td>Fotografía</td>
+                    <td>$0.00</td>
+                    <td>eliminar</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
+          </div>
+        </form>
+      </div>
+      <div class="col">
+        <form id="frmVenta" name="frmVenta" data-model="venta">
+          <h1>Nuevo Abono</h1>
+          <div class="row">
+            <label>Cliente</label>
+            <select data-src="cliente" data-exec="getClientes">
+              <option>(Seleccione una Opción)</option>
+          </select>
+          </div>
+          <div class="row">
+            <label>No. Venta</label>
+            <input type="text" placeholder="0" id="id_usuario" name="id_usuario" class="isRequired" value="0" readonly />
+          </div>
+          <div class="row">
+            <label>Fecha</label>
+            <input type="text" placeholder="Fecha" id="fecha" name="fecha" class="isRequired" />
+          </div>
+
+          <div class="row">
+            <label>Importe</label>
+            <input type="text" placeholder="0" id="monto" name="monto" class="isRequired" value="0" readonly />
+          </div>
+
+  
+
+
+
+          <div class="row">
+            <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="datagrid">
+      <table>
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Descripción</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center">1</td>
+            <td>Luis Cruz</td>
+            <td>luis@kafeina.com</td>
+            <td>818.362.3411</td>
+            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+    </section>
+
+    </section>
+  </main>
+ </body>
+
+ </html>

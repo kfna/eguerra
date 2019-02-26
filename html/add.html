@@ -1,0 +1,131 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>Nertek | CMS</title>
+     <meta name="description" content="DESCRIPTION">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+     <script src="js/dist/Chart.min.js"></script>
+     <script src="js/app.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     
+
+
+
+	<script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="css/app.css">
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+     <style>
+	 #app .panel.right { border:#ccc solid 1px; max-width:1080px; padding:30px; margin:auto; background-color:#fff; border-radius:6px; margin-top:25px;}
+	 .datagrid table { font-size:12px; }
+     </style>
+ </head>
+
+ <body>
+  <header></header>
+  <main id="app">
+    <section class="panel left">
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Propuestas</a></li>
+          <li><a href="#"><i class="fas fa-money-check-alt"></i> Gastos</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="panel right">
+      <div class="form">
+        <form id="frmRemision" name="frmRemision">
+          <div class="col"><input type="text" id="atn" name="atn" placeholder="Atención"></div>
+          <div class="col"><input type="text" id="cliente" name="cliente" placeholder="Cliente"></div>
+          <div class="col"><input type="text" id="fecha" name="fecha" placeholder="Fecha"></div>
+          <div class="col"><input type="text" id="vigencia" name="vigencia" placeholder="Vigencia"></div>
+          <div class="col"><input type="text" id="autor" name="autor" placeholder="Autor"></div>
+          <a href="#" class="onClick" data-exec="Nertek.Save">Guardar</a>
+          <div class="row">
+            <h2>Conceptos</h2>
+          </div>
+        </form>
+        <hr>
+        <div class="datagrid">
+        	<table width="100%" border="1">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Cliente</th>
+              <th>Descripción</th>
+              <th>Total</th>
+              <th>Estatus</th>
+              <th>Facturado</th>
+              <th>Pagado</th>
+              <th>Fecha</th>
+              
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>007</td>
+                <td>Forja</td>
+                
+                <td>20 Vigas</td>
+                <td>$19,800.00</td>
+                <td>Por Cobrar (35 días)</td>
+                <td><i class="far fa-check-circle"></i></td>
+                <td><i class="far fa-check-circle"></i></td>
+                <td>05-FEB-19</td>
+              </tr>
+              <tr>
+                <td>007</td>
+                <td>Forja</td>
+                
+                <td>20 Vigas</td>
+                <td>$19,800.00</td>
+                <td>Por Cobrar (35 días)</td>
+                <td><i class="far fa-check-circle"></i></td>
+                <td><i class="far fa-check-circle"></i></td>
+                <td>05-FEB-19</td>
+              </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+            </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyBSoMX_xZtnoffC8Zf7JZBOTlKYS5Ob5g8",
+    authDomain: "nertek-1544858010604.firebaseapp.com",
+    databaseURL: "https://nertek-1544858010604.firebaseio.com",
+    projectId: "nertek-1544858010604",
+    storageBucket: "nertek-1544858010604.appspot.com",
+    messagingSenderId: "708478662211"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
+  
+  function writeUserData(params,data) {
+  firebase.database().ref(params.ref+"/"+ params.id).set(data);
+}
+
+writeUserData({ref: "cliente",id: 1},{ nombre : "Grupo Forja"});
+
+
+</script>
+<script>
+var objRemision;
+$(document).ready(function(e) {
+   objRemision = new Nertek.Remision(); 
+});
+</script>
+ </body>
+
+ </html>
