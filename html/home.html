@@ -7,13 +7,8 @@
      <meta name="description" content="DESCRIPTION">
      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
-     <script src="js/dist/Chart.min.js"></script>
+     <script src="js/app.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
-
-
 
     <link rel="stylesheet" href="css/app.css">
      <!--[if lt IE 9]>
@@ -84,6 +79,10 @@
         </tfoot>
       </table>
     </div>
+    <script>
+      var objCliente = Guerra.Cliente();
+      objCliente.init();  
+    </script>
     </section>
 
     <section class="page servicios">
@@ -277,7 +276,7 @@
             <input type="text" placeholder="0" id="monto" name="monto" class="isRequired" value="0" readonly />
           </div>
 
-  
+
 
 
 
