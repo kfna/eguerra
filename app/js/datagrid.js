@@ -7,14 +7,16 @@ App.Datagrid = function(data,wrapper,timeline){
 };
 
 App.Datagrid.prototype = {
-  init : function(){ console.log("Datagrid is ready...");   },
-	execute: function (ctrl, data, callback) {
+  init : function(params){
+		var _self = this;
+	},
+	execute: function (params) {
 		$.ajax({
 			type: "POST",
-			url: "_ctrl/ctrl."+ctrl+".php",
-			data: data,
+			url: "_ctrl/ctrl."+params.ctrl+".php",
+			data: params.data,
 			dataType: "json",
-			success: function (r) { callback(r); },
+			success: function (r) { params.callback(r); },
 			error: function (r) { console.log(r); }
 	  });
   },

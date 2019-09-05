@@ -51,9 +51,10 @@ switch($_REQUEST['exec']){
   case "auth":
     $data = $_REQUEST['data'];
     $isRegistered = $obj->set_email($data['email'])->set_contrasena($data['pass'])->verify();
+    $result = NULL;
     if($isRegistered){
       $result = NULL;
-      $result['redirect'] = 'home.html';
+      $result['redirect'] = 'index.html';
       $result['status'] = 200;
     }else{
       $result = NULL;

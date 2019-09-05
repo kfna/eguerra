@@ -1,0 +1,802 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>Estudio Guerra Web Application | by KFNA</title>
+     <meta name="description" content="DESCRIPTION">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="_js/all.js"></script>
+    <link rel="stylesheet" href="css/app.css">
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+	<script>
+		window.chartColors = {
+	red: 'rgb(255, 99, 132)',
+	orange: 'rgb(255, 159, 64)',
+	yellow: 'rgb(255, 205, 86)',
+	green: 'rgb(75, 192, 192)',
+	blue: 'rgb(54, 162, 235)',
+	purple: 'rgb(153, 102, 255)',
+	grey: 'rgb(201, 203, 207)'
+};
+	</script>
+ </head>
+
+ <body>
+   <style>
+   header .row { font-size: 0;}
+   header .row .col { width: 50%; display: inline-block; font-size: 14px; vertical-align: middle; height: 60px;}
+   header .row .col.left ul.links { margin-left: 270px; color: #7a7f8c; margin-top: 15px;}
+   header .row .col.left ul.links li { display: inline-block; vertical-align: middle; margin-right: 10px;}
+   header .row .col.left ul.links li a { color: #7a7f8c; font-size: 20px; text-align: center; width: 25px; height: 25px; line-height: 20px; display: block;}
+   </style>
+  <header>
+    <div class="row">
+      <div class="col left">
+        <ul class="links">
+          <li><a href="#" class="collapse"><span class="top"></span><span class="middle"></span><span class="bottom"></span></a></li>
+          <li><a href="#" class="reload"><i class="fas fa-redo"></i></a></li>
+          <li>|</li>
+          <li><a href="#" class="alerts"><i class="far fa-bell"></i><span class="on"></span></a></li>
+          <li><input type="text" placeholder="Búsqueda..."/></li>
+
+
+        </ul>
+      </div>
+      <div class="col right"></div>
+    </div>
+  </header>
+  <main id="app">
+    <section class="sidebar">
+      <div class="brand">
+        <h1><span>estudio</span>guerra</h1>
+        <div class="utils">
+          <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
+          <a href="#" title="Mapa"><i class="fas fa-map-marked-alt"></i></a>
+        </div>
+      </div>
+      <div class="user">
+        <div class="avatar">
+          <img src="uploads/avatar.jpg" />
+          <span class="online"></span>
+        </div>
+        <h2>Luis Cruz</h2>
+        <h3>Administrador</h3>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Clientes</a></li>
+          <li><a href="#"><i class="fas fa-horse"></i>Ventas <span>&rsaquo;</span></a></li>
+          <li class="sub">
+            <a href="#">Dashboard</a>
+            <a href="#">Módulo de Ventas</a>
+          </li>
+          <li><a href="#"><i class="fas fa-gear"></i>Configuración <span>&rsaquo;</span></a></li>
+          <li class="sub">
+            <a href="#">Catálogo de Servicios</a>
+            <a href="#">Catálogo de Productos</a>
+            <a href="#">Control de Acceso</a>
+            <a href="#">Reportes</a>
+          </li>
+          <li><a href="#"><i class="fas fa-calendar"></i>Agenda <span>&rsaquo;</span></a></li>
+          <li><a href="#"><i class="fas fa-tractor"></i>Inventarios <span>&rsaquo;</span></a></li>
+          <li class="sub">
+            <a href="#">Entradas</a>
+            <a href="#">Salidas</a>
+            <a href="#">Existencias</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section class="panel">
+
+	<section id="dashboard" class="page">
+	  <div class="breadcrumb"><h5>Home &raquo; Dashboard</h5></div>
+		<style>
+   .stats { width: 100%; font-size: 0; margin-bottom: 50px;}
+   .stats .row { margin-bottom: 15px;}
+   .stats .box { background-color: #e4e4e4; padding: 20px; display:inline-block; font-size: 14px; width: 100%; padding-top: 80px; padding-bottom: 80px; }
+   .stats .box h3 { color:#fff; text-align: center; }
+   .stats .box.green { background-color: #0aa699; }
+   .stats .box.red { background-color: #f35958; }
+   .stats .box.purple { background-color: #735f87; }
+   .stats .box.blue { background-color: #0090d9; }
+   .stats .col:first-child { padding-right: 10px;}
+   .stats .col:last-child { padding-left: 10px;}
+			.charts h2 { font-weight: 400;}
+			.charts .row .col:first-child {  padding-right: 20px;}
+			.charts .row .col:last-child { }
+			.charts .container { background-color: #fff; }
+   </style>
+    <div class="stats">
+      <div class="row c3">
+        <div class="col"><div class="box green"><h3>$0.00 Ventas Globales</h3></div></div>
+        <div class="col"><div class="box red"><h3>$0.00 Ventas Abril</h3></div></div>
+		  <div class="col"><div class="box purple"><h3>$0.00 Cuentas por Cobrar Abril</h3></div></div>
+      </div>
+
+    </div>
+
+
+		<div class="charts">
+			<div class="row c2">
+				<div class="col"><h2>Ventas Mensuales</h2><div class="container"><canvas id="myChart"></canvas></div></div>
+				<div class="col"><h2>Ventas por Servicio</h2><div class="container"><canvas id="chart-area"></canvas></div></div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+		<script>
+		var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					'Servicio I',
+					'Servicio II',
+					'Servicio III',
+					'Servicio IV',
+					'Servicio V'
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+
+			window.myPie.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var newDataset = {
+				backgroundColor: [],
+				data: [],
+				label: 'New dataset ' + config.data.datasets.length,
+			};
+
+			for (var index = 0; index < config.data.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+
+				var colorName = colorNames[index % colorNames.length];
+				var newColor = window.chartColors[colorName];
+				newDataset.backgroundColor.push(newColor);
+			}
+
+			config.data.datasets.push(newDataset);
+			window.myPie.update();
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			config.data.datasets.splice(0, 1);
+			window.myPie.update();
+		});
+	</script>
+		<script>
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Ventas Mensuales',
+                data: data,
+            }]
+        },
+    });
+}
+data = [10500, 30500, 80000, 25000, 150000, 120000, 65000,156000,200000,45000,806000,300000];
+        labels =  ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul","Ago","Sep","Oct","Nov","Dic"];
+        renderChart(data, labels);
+</script>
+
+
+	</section>
+
+
+    <section id="cliente" class="page cliente">
+	<div class="breadcrumb"><h5>Home &raquo; Clientes</h5></div>
+
+    <style>
+    
+    </style>
+    <script>
+    $(document).ready(function(){
+      $(".tabs a").click(function(){
+        $(".tabs a").removeClass("active");
+        $(this).addClass("active");
+        var idx = $(this).data("idx");
+        $(".tab").removeClass("active");
+        $(".tab.t"+idx).addClass("active");
+      });
+    });
+    </script>
+
+    <div class="panel window">
+
+      <div class="tabs">
+        <a href="javascript:void(0)" class="tref active" data-idx="1">Registro</a>
+        <a href="javascript:void(0)" class="tref" data-idx="2">Documentos</a>
+        <a href="javascript:void(0)" class="tref" data-idx="3">Agenda</a>
+        <a href="javascript:void(0)" class="tref" data-idx="6">Control (Historial)</a>
+        <a href="javascript:void(0)" class="tref" data-idx="7">Alertas</a>
+        <a href="javascript:void(0)" class="tref" data-idx="9">Notas</a>
+        <a href="javascript:void(0)" class="tref" data-idx="10">Recordatorios</a>
+      </div>
+      <div class="tab t1 active">
+        <div class="options">
+          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+          <a href="#">&bull; &bull; &bull;</a>
+        </div>
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Cliente</h1>
+        <form id="frmCliente" name="frmCliente" data-model="cliente">
+
+            <div class="row c2">
+              <div class="col">
+                <label>Nombre</label>
+                <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="isRequired number" />
+              </div>
+              <div class="col">
+                <label>Tel. Fijo</label>
+                <input type="text" placeholder="Teléfono" id="telefono" name="telefono" class="isRequired" />
+              </div>
+            </div>
+            <div class="row c3">
+              <div class="col">
+                <label>Tel. Móvil</label>
+                <input type="text" placeholder="Tel. Móvil" id="movil" name="movil" class="isRequired" />
+              </div>
+              <div class="col">
+                <label>Correo</label>
+                <input type="text" placeholder="Correo" id="correo" name="correo" class="isRequired" />
+              </div>
+              <div class="col">
+                <label>CP</label>
+                <input type="text" placeholder="CP" id="cp" name="cp" class="isRequired" />
+              </div>
+
+
+            </div>
+            <div class="row c2">
+              <div class="col">
+                <label>Dirección</label>
+                <input type="text" placeholder="Dirección" id="direccion" name="direccion" class="isRequired" />
+              </div>
+              <div class="col">
+                <label>Observaciones</label>
+                <input type="text" placeholder="Observaciones" id="observaciones" name="observaciones" class="isRequired" />
+              </div>
+            </div>
+
+            <div class="row">
+              <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered" data-exec="getClientes">
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Nombre</th>
+                  <th>Tel. Móvil</th>
+                  <th>Correo</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="row actions">
+              <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+            </div>
+
+
+
+
+        </form>
+      </div>
+      <div class="tab t2">
+        <h1><i class="far fa-folder-open"></i> Documentos</h1>
+        <div class="row c6x4">
+          <div class="col">
+            <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th>(+)</th>
+                <th>Documento</th>
+                <th>Fecha</th>
+                <th>Notas</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>DepositoMarzo.pdf</td>
+                  <td>20-MAR-2019</td>
+                  <td>Documento escaneado ficha de deposito</td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DepositoABR.pdf</td>
+                  <td>01-ABR-2019</td>
+                  <td>Documento escaneado ficha de deposito abril</td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+          </div>
+          <div class="col">
+            <div class="upload"></div>
+            <style>
+            .upload { width: 100%; min-height: 250px; border: #efefef solid 1px; background-color: #f7f7f7;}
+            </style>
+          </div>
+        </div>
+      </div>
+      <div class="tab t3"><h2>Tab 3</h2></div>
+      <div class="tab t4">
+        <h1><i class="fas fa-chart-line"></i> Estadística de Peso 2019</h1>
+
+
+
+        <style>
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+
+      </div>
+      <div class="tab t5"><h2>Tab 5</h2></div>
+      <div class="tab t6">
+        <h1>Contratación de Servicios</h1>
+		<table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Venta</td>
+                  <td>Cliente contrata paquete de un total de $7,900.00 y  </td>
+                  <td>12 de Abril del 2019</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+        <h1>Pagos (Abonos)</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Abono</td>
+                  <td>Abono de $2,000.00 MXN resta un saldo de $950.00</td>
+                  <td>13 de Abril del 2019</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+        <h1>Liquidación</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Finiquito</td>
+                  <td>Cliente realiza finiquito de $500.00</td>
+                  <td>14 de Abril del 2019</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+      </div>
+      <div class="tab t7">
+        <h1>Actividades por Vencer</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+				<th>Estatus</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Saldo Pendiente</td>
+                  <td>Cliente tiene saldo pendiente a 7 días de evento</td>
+                  <td>12 de Abril del 2019</td>
+                  <td>Abierto</td>
+                </tr>
+				   <tr>
+                  <td>Abono</td>
+                  <td>Cliente lleva más de (3) meses sin abonar a su estado de cuenta</td>
+                  <td>12 de Abril del 2019</td>
+                  <td>Abierto</td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+
+
+
+      </div>
+      <div class="tab t8">
+        <h1>Tareas</h1>
+        <ul>
+          <li><input type="checkbox"/> Poner Fierro</li>
+          <li><input type="checkbox"/> Primer baño de garrapatas</li>
+        </ul>
+      </div>
+      <div class="tab t10">
+		<h1>Control de Actividades</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th>(+)</th>
+                <th align="left">Actividad</th>
+                <th>Frecuencia</th>
+                <th >Alerta</th>
+				<th>Notificar</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>Estado de Cuenta</td>
+                  <td align="center">
+				  	<select><option>Mensual</option><option>Quincenal</option></select>
+				  </td>
+                  <td align="center"><input type="checkbox" /></td>
+                  <td></td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+				<tr>
+                  <td></td>
+                  <td>Actividad Programada</td>
+                  <td align="center">
+				  	<select><option>7 Días Antes</option><option>1 Día Antes</option></select>
+				  </td>
+                  <td align="center"><input type="checkbox" /></td>
+                  <td></td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+      </div>
+
+
+    </div>
+
+    <!-- Servicios -->
+    <section id="servicios">
+
+    </section>
+    <div class="panel window">
+
+      <div class="tabs">
+        <a href="#" class="tref active" data-idx="1">Servicios</a>
+      </div>
+      <div class="tab t1 active">
+
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Servicios</h1>
+        <form id="frmServicio" name="frmServicio" data-model="servicio">
+            <div class="row">
+                <div class="row c2">
+                  <div class="col">
+                    <label>Servicio</label>
+                    <input type="text" placeholder="Nombre del servicio" id="servicio" name="servicio" class="isRequired" />
+                  </div>
+                  <div class="col">
+                    <label>Costo </label>
+                    <input type="text" placeholder="$0.00" id="costo" name="costo" class="isRequired number" />
+                  </div>
+                </div>
+
+
+                <div class="row c2">
+                  <div class="col">
+                    <label>Descripción</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Breve descripción del servicio"></textarea>
+                  </div>
+                  <div class="col"></div>
+                </div>
+      </div>
+
+
+            <div class="row actions">
+              <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+            </div>
+
+
+
+
+        </form>
+
+        <div class="row">
+          <table id="tblServicios" cellpadding="0" cellspacing="0" class="bordered" data-exec="getServicios">
+            <thead>
+            <tr>
+              <th>No.</th>
+              <th>Servicio</th>
+              <th>Precio</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+
+            </tfoot>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- -->
+
+
+    <div class="panel window">
+
+      <div class="tabs">
+        <a href="#" class="tref active" data-idx="1">Punto de Venta</a>
+      </div>
+      <div class="tab t1 active">
+
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Ventas</h1>
+        <form id="frmCliente" name="frmCliente" data-model="cliente">
+
+
+            <div class="row c2">
+              <div class="col">
+
+                <div class="row c2">
+                  <div class="col">
+                    <label>Fecha de Venta</label>
+                    <input type="text" placeholder="Fecha de Venta" id="rfid" name="rfid" class="isRequired" disa />
+
+                  </div>
+                  <div class="col">
+                    <label>Anticipo</label>
+                    <input type="text" placeholder="$0.00" id="rfid" name="rfid" class="isRequired number" />
+
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="row c2">
+                  <div class="col">
+                    <label>Cliente</label>
+                    <input type="text" placeholder="Búsqueda..." id="rfid" name="rfid" class="isRequired number" />
+
+                  </div>
+                  <div class="col">
+                    <label>Fecha de Evento</label>
+                    <input type="text" placeholder="Telefono" id="origen" name="origen" class="isRequired" />
+
+                  </div>
+                </div>
+
+
+
+                <div class="row c2">
+                  <div class="col">
+                    <label>Observaciones Internas</label>
+                    <input type="text" placeholder="Búsqueda..." id="rfid" name="rfid" class="isRequired number" />
+
+                  </div>
+                  <div class="col">
+                    <label>Observaciones</label>
+                    <input type="text" placeholder="Telefono" id="origen" name="origen" class="isRequired" />
+                  </div>
+                </div>
+
+
+
+              </div>
+              <div class="col">
+                <style>
+                .pos { min-height: 250px; margin-bottom: 15px; margin-top: -38px; }
+                .pos table { background-color: #fff;}
+                .pos .search { margin-bottom: 5px; margin-top: 20px; text-align: right;}
+                .pos .search input { max-width: 350px; display: inline-block;}
+                </style>
+                <div class="pos">
+
+                  <div class="search">
+                    <input type="text" placeholder="Búsqueda de servicios y paquetes" />
+                  </div>
+
+                  <table cellpadding="0" cellspacing="0" class="bordered">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Cantidad</th>
+                      <th>Descripción</th>
+                      <th>Fecha Evento</th>
+                      <th>Precio</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="center">1</td>
+                        <td>1</td>
+                        <td>Sesión informal de bodas</td>
+                        <td>$5,000.00</td>
+                        <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                  </table>
+                </div>
+
+
+                <table align="right">
+                  <tr>
+                    <td>Total</td>
+                    <td>$5,000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Anticipo</td>
+                    <td>$0.00</td>
+                  </tr>
+                  <tr>
+                    <td>Saldo</td>
+                    <td>$5,000.00</td>
+                  </tr>
+                </table>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="row actions">
+              <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+            </div>
+
+
+
+
+        </form>
+      </div>
+    </div>
+
+
+    <!-- -->
+
+
+
+
+
+
+
+
+    </section>
+    <script>
+    var objCliente;
+    $(document).ready(function(e){
+      objCliente = new App.Cliente();
+      objCliente.Datagrid.execute(
+        { ctrl : "cliente",
+          data: { exec : "getClientes" },
+          callback: function(r){
+            var data = r.json.data;
+            var buffer = '';
+            for(var i=0;i<data.length;i++){
+              buffer += '<tr><td>'+data[i].id+'</td><td>'+data[i].nombre+'</td><td>'+data[i].movil+'</td><td>'+data[i].correo+'</td><td></td></tr>';
+            }
+            console.log(buffer);
+            $("#tblClientes > tbody").html(buffer);
+          }
+        });
+    });
+    </script>
+
+
+
+  </section> <!-- /panel -->
+  </main>
+ </body>
+
+ </html>

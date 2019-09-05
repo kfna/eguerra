@@ -12,74 +12,73 @@ abstract class Helper {
   public $sql;
   public $debug;
   public $link;
-  
+
   public function __construct(){ }
 
   public function __call($name, $arguments) {
     if(substr($name,0,4) == 'set_'){
       $property = substr($name,4);
-      $this->$property = $arguments[0];	
+      $this->$property = $arguments[0];
     }
     return $this;
   }
-  
+
   public function getLastInserted(){ return $this->lastInserted; }
 
-  
+
   public function execute($query,$lid = NULL){
     $this->arrayCollection = NULL;
     $this->link = $this->sql->CONNECT();
     $result = $this->link->query($query) or die($this->link->error);
 	if($lid){ $this->lastInserted = $this->link->insert_id; }
-	echo $lid;
 	if(!is_bool($result)){
       while($row = $result->fetch_assoc()) { $this->arrayCollection[] = $row; }
 	  $this->link->close();
-	  return $this->arrayCollection;   	  
+	  return $this->arrayCollection;
 	}else{
 	  $this->link->close();
-	  return true;	
+	  return true;
 	}
   }
-  
+
   public function db_close(){ mysql_close(); }
-  
+
   public function __get($field) {
     if($field == 'name') {
       return $this->username;
     }
-  }  
-  
+  }
+
   public function __set($field, $value) {
     if($field == 'name') {
       $this->username = $value;
     }
-  }  
-  
-  
+  }
+
+
   function NlToBr($inString){
     return str_replace("<br />", "",$inString);
   }
-  
+
   function formatDate($date,$format){
-	
+
   $aux = explode("-",$date);
   $mes = NULL;
   switch($aux[1]){
-    case "01": $mes = "Enero"; 
+    case "01": $mes = "Enero";
 	break;
-    case "02": $mes = "Febrero"; 
+    case "02": $mes = "Febrero";
 	break;
-    case "03": $mes = "Marzo"; 
+    case "03": $mes = "Marzo";
 	break;
-    case "04": $mes = "Abril"; 
+    case "04": $mes = "Abril";
 	break;
-    case "05": $mes = "Mayo"; 
+    case "05": $mes = "Mayo";
 	break;
     case "06": $mes = "Junio";
-	break;	
+	break;
     case "07": $mes = "Julio";
-	break;  
+	break;
     case "08": $mes = "Agosto";
 	break;
     case "09":  $mes = "Septiembre";
@@ -92,17 +91,17 @@ abstract class Helper {
 	break;
   }
   switch($format){
-    case "min": return $aux[2]."-".substr(strtoupper($mes),0,3)."-".$aux[0]; 
+    case "min": return $aux[2]."-".substr(strtoupper($mes),0,3)."-".$aux[0];
 	break;
-	case "med": return $aux[2]."-".$mes."-".$aux[0]; 
+	case "med": return $aux[2]."-".$mes."-".$aux[0];
 	break;
-	case "max": return $aux[2]." de ".$mes." del ".$aux[0]; 
+	case "max": return $aux[2]." de ".$mes." del ".$aux[0];
 	break;
 	case "alt": return $aux[2]." ".substr($mes,0,3);
 	break;
   }
-  
- 
+
+
 }
 
 function formatDateTime($date,$format){
@@ -110,20 +109,20 @@ function formatDateTime($date,$format){
   $aux = explode("-",$temp[0]);
   $mes = NULL;
   switch($aux[1]){
-    case "01": $mes = "Enero"; 
+    case "01": $mes = "Enero";
 	break;
-    case "02": $mes = "Febrero"; 
+    case "02": $mes = "Febrero";
 	break;
-    case "03": $mes = "Marzo"; 
+    case "03": $mes = "Marzo";
 	break;
-    case "04": $mes = "Abril"; 
+    case "04": $mes = "Abril";
 	break;
-    case "05": $mes = "Mayo"; 
+    case "05": $mes = "Mayo";
 	break;
     case "06": $mes = "Junio";
-	break;	
+	break;
     case "07": $mes = "Julio";
-	break;  
+	break;
     case "08": $mes = "Agosto";
 	break;
     case "09":  $mes = "Septiembre";
@@ -136,7 +135,7 @@ function formatDateTime($date,$format){
 	break;
   }
   switch($format){
-    case "min": return $aux[2]."-".substr(strtoupper($mes),0,3)."-".$aux[0]." ".$temp[1]; 
+    case "min": return $aux[2]."-".substr(strtoupper($mes),0,3)."-".$aux[0]." ".$temp[1];
 	break;
 	case "med": return $aux[2]."-".$mes."-".$aux[0]." ".$temp[1];
 	break;
@@ -153,7 +152,7 @@ function formatDateTime($date,$format){
     $diffHours = round(($day2 - $day1) / 3600);
 	return $diffHours;
   }
-  
+
   public function get_time_ago($to,$from){
     $to_time = strtotime($to);
     $from_time = strtotime($from);
@@ -163,6 +162,6 @@ function formatDateTime($date,$format){
     if($result >= 1440){ return number_format(($result/1440),0). 'd'; }
   }
 
-  
+
 }
 ?>

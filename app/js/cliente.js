@@ -16,6 +16,23 @@ App.Cliente.prototype = {
   },
   animations: function(){ },
 	addEventListeners: function(file){ },
+	save: function(e){
+    var _self = this;
+		var el = "#"+e.closest("form").attr("id");
+    var objForm = new App.Forms();
+    objForm.reset(el);
+    if(!objForm.validate(el)) return;
+    var data = _self.DAO.toObject($(el).serializeArray());
+    var result = function(r){
+      if(r.status==200){
+        alert("elemento guardado");
+      }else{
+        $("#notice").addClass("show");
+        setTimeout(function(){ $("#notice").removeClass("show");  },5000);
+      }
+    }
+    _self.DAO.execute(_self.ref, { exec: "save", data: data},result);
+  },
 	getList: function(map){
 		var _self = this;
 		var result = function(r){

@@ -7,5 +7,6 @@ switch($_SERVER['SERVER_NAME']){
   define('SERVER_PASS',"qwerty123");
   define('SERVER_DB',"eguerra");
   break;
+
 }
 ?>

@@ -1,18 +1,13 @@
  <!DOCTYPE html>
  <html lang="en">
-
 <head>
      <meta charset="UTF-8">
-     <title>Nertek | CMS</title>
+     <title>Estudio Guerra Web Application | by KFNA</title>
      <meta name="description" content="DESCRIPTION">
      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="_js/all.js"></script>
-
-
-
-
 
     <link rel="stylesheet" href="css/app.css">
      <!--[if lt IE 9]>
@@ -21,314 +16,237 @@
  </head>
 
  <body>
-  <header></header>
-  <main id="app">
-    <section class="panel left">
-      <nav>
-        <ul>
-          <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Clientes</a></li>
-          <li><a href="#"><i class="fas fa-money-check-alt"></i> Catalogo de </a></li>
+ <header>
+    <div class="row">
+      <div class="col left">
+        <ul class="links">
+          <li><a href="#" class="collapse"><span class="top"></span><span class="middle"></span><span class="bottom"></span></a></li>
+          <li><a href="#" class="reload"><i class="fas fa-redo"></i></a></li>
+          <li>|</li>
+          <li><a href="#" class="alerts"><i class="far fa-bell"></i><span class="on"></span></a></li>
+          <li><input type="text" placeholder="Búsqueda..."/></li>
+
+
         </ul>
-      </nav>
-    </section>
-    <section class="panel right">
-
-    <style>
-    .page { border: #e4e4e4 solid 1px; max-width: 1080px; margin: auto; background-color: #fbfbfb; padding: 25px;}
-    </style>
-    <section class="page cliente">
-    <h1>Clientes</h1>
-
-    <form id="frmCliente" name="frmCliente" data-model="cliente">
-      <h1>Nuevo Cliente</h1>
-      <div class="row">
-        <label>Nombre Completo</label>
-        <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="isRequired" />
       </div>
-      <div class="row">
-        <label>E-mail</label>
-        <input type="text" placeholder="E-mail" id="email" name="email" class="isRequired" />
-      </div>
-      <div class="row">
-        <label>Telefono</label>
-        <input type="text" placeholder="Telefono" id="telefono" name="telefono" class="isRequired" />
-      </div>
-      <div class="row">
-        <div class="col"><a href="#" data-action="save" data-form="frmCliente" class="btn onClick">Guardar</a></div>
-      </div>
-    </form>
-
-    <div class="datagrid">
-      <table>
-        <thead>
-        <tr>
-          <th>No.</th>
-          <th>Nombre</th>
-          <th>E-mail</th>
-          <th>Telefono</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="center">1</td>
-            <td>Luis Cruz</td>
-            <td>luis@kafeina.com</td>
-            <td>818.362.3411</td>
-            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-          </tr>
-        </tbody>
-        <tfoot>
-
-        </tfoot>
-      </table>
+      <div class="col right"></div>
     </div>
-    </section>
+  </header>
+<script>
+  window.chartColors = {
+red: 'rgb(255, 99, 132)',
+orange: 'rgb(255, 159, 64)',
+yellow: 'rgb(255, 205, 86)',
+green: 'rgb(75, 192, 192)',
+blue: 'rgb(54, 162, 235)',
+purple: 'rgb(153, 102, 255)',
+grey: 'rgb(201, 203, 207)'
+};
+</script>
 
-    <section id="servicio" class="page servicios">
-    <h1>Servicios</h1>
-
-    <form id="frmServicio" name="frmServicio" data-ctrl="servicio" class="">
-      <h1>Nuevo Servicio</h1>
-      <div class="row">
-        <label>Nombre Completo</label>
-        <input type="text" placeholder="Servicio" id="servicio" name="servicio" class="isRequired" />
+<main id="app">
+  <section class="sidebar">
+    <div class="brand">
+      <h1>estudio<span>eguerra</h1>
+      <div class="utils">
+        <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
+        <a href="#" title="Mapa"><i class="fas fa-map-marked-alt"></i></a>
       </div>
-      <div class="row">
-        <label>Precio</label>
-        <input type="text" placeholder="$0.00" id="precio" name="precio" class="isRequired" />
-      </div>
-      <div class="row">
-        <label>Descripción</label>
-        <input type="text" placeholder="" id="descripcion" name="descripcion" class="isRequired" />
-      </div>
-      <div class="row">
-        <div class="col"><a href="javascript:void(0)" class="btn onClick" data-exec="save">Aceptar</a></div>
-      </div>
-    </form>
-
-    <div class="datagrid">
-      <table>
-        <thead>
-        <tr>
-          <th>No.</th>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Descripción</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="center">1</td>
-            <td>Luis Cruz</td>
-            <td>luis@kafeina.com</td>
-            <td>818.362.3411</td>
-            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-          </tr>
-        </tbody>
-        <tfoot>
-
-        </tfoot>
-      </table>
     </div>
-    </section>
-    <script>
-    var objServicio;
-    $(document).ready(function(e){ objServicio = new App.Servicio(); });
-    </script>
-
-    <section class="page usuario">
-    <h1>Usuarios (Staff)</h1>
-
-    <form id="frmUsuario" name="frmUsuario" data-model="usuario">
-      <h1>Nuevo Usuario</h1>
-      <div class="row">
-        <label>Nombre Completo</label>
-        <input type="text" placeholder="Nombre" id="nombre" name="nombre" class="isRequired" />
-      </div>
-      <div class="row">
-        <label>E-mail</label>
-        <input type="text" placeholder="E-mail" id="email" name="email" class="isRequired" />
-      </div>
-      <div class="row">
-        <label>Contraseña</label>
-        <input type="password" placeholder="Contraseña" id="password" name="password" class="isRequired" />
-      </div>
-      <div class="row">
-        <label>Confirmar Contraseña</label>
-        <input type="password" placeholder="Confirmar Contraseña" id="passwordv" name="passwordv" class="isRequired" />
-      </div>
-      <div class="row">
-        <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
-      </div>
-    </form>
-
-    <div class="datagrid">
-      <table>
-        <thead>
-        <tr>
-          <th>No.</th>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Descripción</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="center">1</td>
-            <td>Luis Cruz</td>
-            <td>luis@kafeina.com</td>
-            <td>818.362.3411</td>
-            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-          </tr>
-        </tbody>
-        <tfoot>
-
-        </tfoot>
-      </table>
+    <div class="user">
+      <div class="avatar"><img src="uploads/avatar.jpg" /><span class="online"></span></div>
+      <h2>Luis Cruz</h2><h3>Administrador</h3>
     </div>
-    </section>
+    <nav>
+      <ul>
+        <li><a href="ventas.html" class=""><i class="fas fa-cash-register"></i>Ventas <span>&rsaquo;</span></a></li>
+    
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users"></i>Clientes <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="clientes.html">Acceso a Clientes</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-tractor"></i>Catálogos <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="servicios.html">Paquetes y Servicios</a>
+          <a href="#">Agendas Programadas</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-user-tag"></i>Proveedores <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Proveedores y Existencias</a>
+          <a href="#">Detalle de Servicios</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-comment-dollar"></i>Pagos<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Pago a Trabajadores</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-box"></i>Reportes<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Reportes Generales</a>
+          <a href="#">Video y Secuencia</a>
+          <a href="#">Aenda Programada</a>
+          <a href="#">Trabajos Pendientes</a>
+          <a href="#">Navidad</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-th"></i>Inventarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Almacenes</a>
+          <a href="#">Existencias</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users-cog"></i>Usuarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Control de Acceso</a>
+          <a href="#">Asistencia Personal</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <section id="dashboard" class="page">
+	  <div class="breadcrumb"><h5>Home &raquo; Dashboard</h5></div>
+		<style>
+   .stats { width: 100%; font-size: 0; margin-bottom: 50px;}
+   .stats .row { margin-bottom: 15px;}
+   .stats .box { background-color: #e4e4e4; padding: 20px; display:inline-block; font-size: 14px; width: 100%; padding-top: 80px; padding-bottom: 80px; }
+   .stats .box h3 { color:#fff; text-align: center; }
+   .stats .box.green { background-color: #0aa699; }
+   .stats .box.red { background-color: #f35958; }
+   .stats .box.purple { background-color: #735f87; }
+   .stats .box.blue { background-color: #0090d9; }
+   .stats .col:first-child { padding-right: 10px;}
+   .stats .col:last-child { padding-left: 10px;}
+			.charts h2 { font-weight: 400;}
+			.charts .row .col:first-child {  padding-right: 20px;}
+			.charts .row .col:last-child { }
+			.charts .container { background-color: #fff; }
+   </style>
+    <div class="stats">
+      <div class="row c3">
+        <div class="col"><div class="box green"><h3>$0.00 Ventas Globales</h3></div></div>
+        <div class="col"><div class="box red"><h3>$0.00 Ventas Mayo</h3></div></div>
+		  <div class="col"><div class="box purple"><h3>$0.00 Cuentas por Cobrar Mayo</h3></div></div>
+      </div>
+
+    </div>
 
 
-    <script>
-    var objCliente;
-    $(document).ready(function(e){
-      objCliente = new App.Cliente();
-      objCliente.getList();
+		<div class="charts">
+			<div class="row c2">
+				<div class="col"><h2>Ventas Mensuales</h2><div class="container"><canvas id="myChart"></canvas></div></div>
+				<div class="col"><h2>Ventas por Servicio</h2><div class="container"><canvas id="chart-area"></canvas></div></div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+		<script>
+		var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					'Servicio I',
+					'Servicio II',
+					'Servicio III',
+					'Servicio IV',
+					'Servicio V'
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+
+			window.myPie.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var newDataset = {
+				backgroundColor: [],
+				data: [],
+				label: 'New dataset ' + config.data.datasets.length,
+			};
+
+			for (var index = 0; index < config.data.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+
+				var colorName = colorNames[index % colorNames.length];
+				var newColor = window.chartColors[colorName];
+				newDataset.backgroundColor.push(newColor);
+			}
+
+			config.data.datasets.push(newDataset);
+			window.myPie.update();
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			config.data.datasets.splice(0, 1);
+			window.myPie.update();
+		});
+	</script>
+		<script>
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Ventas Mensuales',
+                data: data,
+            }]
+        },
     });
-    </script>
-    <section id="venta" class="page venta">
-    <h1>Venta</h1>
+}
+data = [10500, 30500, 80000, 25000, 150000, 120000, 65000,156000,200000,45000,806000,300000];
+        labels =  ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul","Ago","Sep","Oct","Nov","Dic"];
+        renderChart(data, labels);
+</script>
 
-    <div class="row c2">
-      <div class="col">
-        <form id="frmVenta" name="frmVenta" data-model="venta">
-          <h1>Nueva Venta</h1>
-          <div class="row">
-            <label>Cliente</label>
-            <select id="lstClientes" data-src="cliente" data-exec="getClientes">
-              <option>(Seleccione una Opción)</option>
-          </select>
-          </div>
-          <div class="row">
-            <label>Usuario (Staff)</label>
-            <input type="text" placeholder="0" id="id_usuario" name="id_usuario" class="isRequired" value="0" readonly />
-          </div>
-          <div class="row">
-            <label>Fecha</label>
-            <input type="text" placeholder="Fecha" id="fecha" name="fecha" class="isRequired" />
-          </div>
 
-          <div class="row">
-            <label>Comentarios Internos</label>
-            <input type="text" placeholder="Comentarios Internos" id="fecha" name="fecha" class="isRequired" />
-          </div>
-
-          <div class="row">
-            <label>Comentarios Externos</label>
-            <input type="text" placeholder="Comentarios Externos" id="fecha" name="fecha" class="isRequired" />
-          </div>
-
-          <div class="row">
-            <label>Productos y Servicios</label>
-            <div class="datagrid">
-              <table>
-                <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Servicio / Producto</th>
-                  <th>Precio</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td align="center">1</td>
-                    <td>Fotografía</td>
-                    <td>$0.00</td>
-                    <td>eliminar</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-
-                </tfoot>
-              </table>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
-          </div>
-        </form>
-      </div>
-      <div class="col">
-        <form id="frmVenta" name="frmVenta" data-model="venta">
-          <h1>Nuevo Abono</h1>
-          <div class="row">
-            <label>Cliente</label>
-            <select data-src="cliente" data-exec="getClientes">
-              <option>(Seleccione una Opción)</option>
-          </select>
-          </div>
-          <div class="row">
-            <label>No. Venta</label>
-            <input type="text" placeholder="0" id="id_usuario" name="id_usuario" class="isRequired" value="0" readonly />
-          </div>
-          <div class="row">
-            <label>Fecha</label>
-            <input type="text" placeholder="Fecha" id="fecha" name="fecha" class="isRequired" />
-          </div>
-
-          <div class="row">
-            <label>Importe</label>
-            <input type="text" placeholder="0" id="monto" name="monto" class="isRequired" value="0" readonly />
-          </div>
+	</section>
 
 
 
 
 
-          <div class="row">
-            <div class="col"><a href="#" data-action="save" data-form="frmServicio" class="btn onClick">Guardar</a></div>
-          </div>
-        </form>
-      </div>
-    </div>
 
 
+  </section> <!-- /panel -->
 
-    <div class="datagrid">
-      <table>
-        <thead>
-        <tr>
-          <th>No.</th>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Descripción</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="center">1</td>
-            <td>Luis Cruz</td>
-            <td>luis@kafeina.com</td>
-            <td>818.362.3411</td>
-            <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-          </tr>
-        </tbody>
-        <tfoot>
-
-        </tfoot>
-      </table>
-    </div>
-    </section>
-
-    </section>
   </main>
- </body>
 
+ </body>
  </html>

@@ -1,0 +1,164 @@
+{{> head}}
+{{> header}}
+
+<script>
+  window.chartColors = {
+red: 'rgb(255, 99, 132)',
+orange: 'rgb(255, 159, 64)',
+yellow: 'rgb(255, 205, 86)',
+green: 'rgb(75, 192, 192)',
+blue: 'rgb(54, 162, 235)',
+purple: 'rgb(153, 102, 255)',
+grey: 'rgb(201, 203, 207)'
+};
+</script>
+
+<main id="app">
+  {{> sidebar}}
+
+  <section id="dashboard" class="page">
+	  <div class="breadcrumb"><h5>Home &raquo; Dashboard</h5></div>
+		<style>
+   .stats { width: 100%; font-size: 0; margin-bottom: 50px;}
+   .stats .row { margin-bottom: 15px;}
+   .stats .box { background-color: #e4e4e4; padding: 20px; display:inline-block; font-size: 14px; width: 100%; padding-top: 80px; padding-bottom: 80px; }
+   .stats .box h3 { color:#fff; text-align: center; }
+   .stats .box.green { background-color: #0aa699; }
+   .stats .box.red { background-color: #f35958; }
+   .stats .box.purple { background-color: #735f87; }
+   .stats .box.blue { background-color: #0090d9; }
+   .stats .col:first-child { padding-right: 10px;}
+   .stats .col:last-child { padding-left: 10px;}
+			.charts h2 { font-weight: 400;}
+			.charts .row .col:first-child {  padding-right: 20px;}
+			.charts .row .col:last-child { }
+			.charts .container { background-color: #fff; }
+   </style>
+    <div class="stats">
+      <div class="row c3">
+        <div class="col"><div class="box green"><h3>$0.00 Ventas Globales</h3></div></div>
+        <div class="col"><div class="box red"><h3>$0.00 Ventas Mayo</h3></div></div>
+		  <div class="col"><div class="box purple"><h3>$0.00 Cuentas por Cobrar Mayo</h3></div></div>
+      </div>
+
+    </div>
+
+
+		<div class="charts">
+			<div class="row c2">
+				<div class="col"><h2>Ventas Mensuales</h2><div class="container"><canvas id="myChart"></canvas></div></div>
+				<div class="col"><h2>Ventas por Servicio</h2><div class="container"><canvas id="chart-area"></canvas></div></div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+		<script>
+		var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					'Servicio I',
+					'Servicio II',
+					'Servicio III',
+					'Servicio IV',
+					'Servicio V'
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+			});
+
+			window.myPie.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var newDataset = {
+				backgroundColor: [],
+				data: [],
+				label: 'New dataset ' + config.data.datasets.length,
+			};
+
+			for (var index = 0; index < config.data.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+
+				var colorName = colorNames[index % colorNames.length];
+				var newColor = window.chartColors[colorName];
+				newDataset.backgroundColor.push(newColor);
+			}
+
+			config.data.datasets.push(newDataset);
+			window.myPie.update();
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			config.data.datasets.splice(0, 1);
+			window.myPie.update();
+		});
+	</script>
+		<script>
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Ventas Mensuales',
+                data: data,
+            }]
+        },
+    });
+}
+data = [10500, 30500, 80000, 25000, 150000, 120000, 65000,156000,200000,45000,806000,300000];
+        labels =  ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul","Ago","Sep","Oct","Nov","Dic"];
+        renderChart(data, labels);
+</script>
+
+
+	</section>
+
+
+
+
+
+
+
+  </section> <!-- /panel -->
+
+  </main>
+
+{{> footer}}

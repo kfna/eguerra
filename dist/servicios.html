@@ -1,0 +1,267 @@
+ <!DOCTYPE html>
+ <html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>Estudio Guerra Web Application | by KFNA</title>
+     <meta name="description" content="DESCRIPTION">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="_js/all.js"></script>
+
+    <link rel="stylesheet" href="css/app.css">
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+ </head>
+
+ <body>
+ <header>
+    <div class="row">
+      <div class="col left">
+        <ul class="links">
+          <li><a href="#" class="collapse"><span class="top"></span><span class="middle"></span><span class="bottom"></span></a></li>
+          <li><a href="#" class="reload"><i class="fas fa-redo"></i></a></li>
+          <li>|</li>
+          <li><a href="#" class="alerts"><i class="far fa-bell"></i><span class="on"></span></a></li>
+          <li><input type="text" placeholder="Búsqueda..."/></li>
+
+
+        </ul>
+      </div>
+      <div class="col right"></div>
+    </div>
+  </header>
+<main id="app">
+  <section class="sidebar">
+    <div class="brand">
+      <h1>estudio<span>eguerra</h1>
+      <div class="utils">
+        <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
+        <a href="#" title="Mapa"><i class="fas fa-map-marked-alt"></i></a>
+      </div>
+    </div>
+    <div class="user">
+      <div class="avatar"><img src="uploads/avatar.jpg" /><span class="online"></span></div>
+      <h2>Luis Cruz</h2><h3>Administrador</h3>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="ventas.html" class=""><i class="fas fa-cash-register"></i>Ventas <span>&rsaquo;</span></a></li>
+    
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users"></i>Clientes <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="clientes.html">Acceso a Clientes</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-tractor"></i>Catálogos <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="servicios.html">Paquetes y Servicios</a>
+          <a href="#">Agendas Programadas</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-user-tag"></i>Proveedores <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Proveedores y Existencias</a>
+          <a href="#">Detalle de Servicios</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-comment-dollar"></i>Pagos<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Pago a Trabajadores</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-box"></i>Reportes<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Reportes Generales</a>
+          <a href="#">Video y Secuencia</a>
+          <a href="#">Aenda Programada</a>
+          <a href="#">Trabajos Pendientes</a>
+          <a href="#">Navidad</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-th"></i>Inventarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Almacenes</a>
+          <a href="#">Existencias</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users-cog"></i>Usuarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Control de Acceso</a>
+          <a href="#">Asistencia Personal</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <section class="panel">
+    <section id="servicio" class="page servicio">
+	<div class="breadcrumb"><h5>Home &raquo; Administración de Servicios y Paquetes</h5></div>
+
+
+		<script>
+    $(document).ready(function(){
+      $(".tabs a").click(function(){
+        $(".tabs a").removeClass("active");
+        $(this).addClass("active");
+        var idx = $(this).data("idx");
+        $(".tab").removeClass("active");
+        $(".tab.t"+idx).addClass("active");
+      });
+    });
+    </script>
+
+
+
+    <div class="panel window">
+
+      <div class="tabs">
+        <a href="#" class="tref active" data-idx="1">Servicios</a>
+        <a href="#" class="tref" data-idx="2">Paquetes</a>
+      </div>
+      <div class="tab t1 active">
+
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Servicio</h1>
+        <form id="frmServicio" name="frmServicio" data-model="servicio">
+            <div class="row c2">
+              <div class="col">
+                <label>Nombre de Servicio</label>
+                <input type="text" placeholder="" id="servicio" name="servicio" class="isRequired number" />
+              </div>
+              <div class="col">
+                <label>Costo ($)</label>
+                <input type="text" placeholder="$0.00" id="costo" name="costo" class="isRequired" />
+              </div>
+
+            </div>
+
+
+            <div class="row actions">
+              <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+            </div>
+
+
+
+
+
+
+
+        </form>
+      </div>
+
+      <div class="tab t2">
+
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Paquetes</h1>
+        <form id="frmPaquete" name="frmPaquete" data-model="servicio">
+            <div class="row c2">
+              <div class="col">
+                <label>Nombre de Paquete</label>
+                <input type="text" placeholder="" id="paquete" name="paquete" class="isRequired" />
+                <br />
+                <label>Descripción de Paquete</label>
+                <input type="text" placeholder="" id="descripcion" name="descripcion" class="isRequired" />
+
+              </div>
+              <div class="col">
+                <style>
+                .table { width: 100%; height: 200px; border: #e4e4e4 solid 1px;}
+                .table table { width: 100%;}
+                </style>
+                <div class="datagrid">
+                  <table id="tblSelServicios" class="bordered" cellpadding="0" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>*</th>
+                        <th>Servicio</th>
+                        <th>Costo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="row actions">
+              <div class="col"><a href="javascript:void(0)" data-exec="savePaquete" class="btn onClick">Guardar</a></div>
+            </div>
+
+
+
+</form>
+
+      </div>
+
+
+
+
+    </div>
+
+    <!-- DATA GRID -->
+    <div class="panel window">
+
+
+
+
+
+        <h1><i class="fas fa-pencil-alt"></i> Servicios</h1>
+
+        <div class="table">
+          <table id="tblServicios" cellpadding="0" cellspacing="0" class="bordered" data-exec="getServicios">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Servicio</th>
+                <th>Costo ($)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+
+            </tfoot>
+          </table>
+        </div>
+    </div>
+
+
+
+
+    </section>
+    <script>
+    var objServicios;
+    $(document).ready(function(e){
+		objServicios = new App.Servicio();
+		objDatagrid.execute(
+        { ctrl : "servicio",
+          data: { exec : "getServicios" },
+          callback: function(r){
+            objServicios.setData(r.json.data);
+            var data = r.json.data;
+            var buffer = '';
+            var buffer_SelServicios = '';
+            for(var i=0;i<data.length;i++){
+              buffer += '<tr><td>'+data[i].id+'</td><td>'+data[i].servicio+'</td><td>'+data[i].costo+'</td><td></td></tr>';
+              if(data[i].tipo==1){
+              buffer_SelServicios += '<tr><td><input type="checkbox" id="s_'+i+'" name="s_'+i+'" data-idx="'+i+'" /></td><td>'+data[i].servicio+'</td><td><input type="text" id="costo_'+i+'" name="costo_'+i+'" placeholder="$'+data[i].costo+'" class="small" /></td></tr>';
+              }
+            }
+            console.log(buffer);
+            $("#tblServicios > tbody").html(buffer);
+            $("#tblSelServicios > tbody").html(buffer_SelServicios);
+          }
+        });
+	});
+    </script>
+
+
+  </section> <!-- /panel -->
+  </main>
+
+ </body>
+ </html>
+
+<style>
+.small { max-width: 100px; height: 25px;}
+</style>

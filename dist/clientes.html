@@ -1,0 +1,435 @@
+ <!DOCTYPE html>
+ <html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>Estudio Guerra Web Application | by KFNA</title>
+     <meta name="description" content="DESCRIPTION">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="_js/all.js"></script>
+
+    <link rel="stylesheet" href="css/app.css">
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+ </head>
+
+ <body>
+ <header>
+    <div class="row">
+      <div class="col left">
+        <ul class="links">
+          <li><a href="#" class="collapse"><span class="top"></span><span class="middle"></span><span class="bottom"></span></a></li>
+          <li><a href="#" class="reload"><i class="fas fa-redo"></i></a></li>
+          <li>|</li>
+          <li><a href="#" class="alerts"><i class="far fa-bell"></i><span class="on"></span></a></li>
+          <li><input type="text" placeholder="Búsqueda..."/></li>
+
+
+        </ul>
+      </div>
+      <div class="col right"></div>
+    </div>
+  </header>
+<main id="app">
+  <section class="sidebar">
+    <div class="brand">
+      <h1>estudio<span>eguerra</h1>
+      <div class="utils">
+        <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
+        <a href="#" title="Mapa"><i class="fas fa-map-marked-alt"></i></a>
+      </div>
+    </div>
+    <div class="user">
+      <div class="avatar"><img src="uploads/avatar.jpg" /><span class="online"></span></div>
+      <h2>Luis Cruz</h2><h3>Administrador</h3>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="ventas.html" class=""><i class="fas fa-cash-register"></i>Ventas <span>&rsaquo;</span></a></li>
+    
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users"></i>Clientes <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="clientes.html">Acceso a Clientes</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-tractor"></i>Catálogos <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="servicios.html">Paquetes y Servicios</a>
+          <a href="#">Agendas Programadas</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-user-tag"></i>Proveedores <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Proveedores y Existencias</a>
+          <a href="#">Detalle de Servicios</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-comment-dollar"></i>Pagos<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Pago a Trabajadores</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-box"></i>Reportes<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Reportes Generales</a>
+          <a href="#">Video y Secuencia</a>
+          <a href="#">Aenda Programada</a>
+          <a href="#">Trabajos Pendientes</a>
+          <a href="#">Navidad</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-th"></i>Inventarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Almacenes</a>
+          <a href="#">Existencias</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users-cog"></i>Usuarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Control de Acceso</a>
+          <a href="#">Asistencia Personal</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <section class="panel">
+
+    <section id="cliente" class="page">
+	<div class="breadcrumb"><h5>Home &raquo; Clientes</h5></div>
+
+
+    <script>
+    $(document).ready(function(){
+      $(".tabs a").click(function(){
+        $(".tabs a").removeClass("active");
+        $(this).addClass("active");
+        var idx = $(this).data("idx");
+        $(".tab").removeClass("active");
+        $(".tab.t"+idx).addClass("active");
+      });
+    });
+    </script>
+
+    <div class="panel window">
+
+      <div class="tabs">
+        <a href="javascript:void(0)" class="tref active" data-idx="1">Registro</a>
+        <a href="javascript:void(0)" class="tref" data-idx="2">Documentos</a>
+        <a href="javascript:void(0)" class="tref" data-idx="3">Agenda</a>
+        <a href="javascript:void(0)" class="tref" data-idx="6">Control (Historial)</a>
+        <a href="javascript:void(0)" class="tref" data-idx="7">Alertas</a>
+        <a href="javascript:void(0)" class="tref" data-idx="9">Notas</a>
+        <a href="javascript:void(0)" class="tref" data-idx="10">Recordatorios</a>
+      </div>
+      <div class="tab t1 active">
+        <div class="options">
+          <a href="#"><i class="fas fa-pencil-alt"></i></a>
+          <a href="#">&bull; &bull; &bull;</a>
+        </div>
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Cliente</h1>
+        <form id="frmCliente" name="frmCliente" data-model="cliente">
+
+            <div class="row c2">
+              <div class="col">
+                <label>Nombre</label>
+                <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="isRequired number" />
+              </div>
+              <div class="col">
+                <label>Tel. Fijo</label>
+                <input type="text" placeholder="Teléfono" id="telefono" name="telefono" class="isRequired" />
+              </div>
+            </div>
+            <div class="row c3">
+              <div class="col">
+                <label>Tel. Móvil</label>
+                <input type="text" placeholder="Tel. Móvil" id="movil" name="movil" class="isRequired" />
+              </div>
+              <div class="col">
+                <label>Correo</label>
+                <input type="text" placeholder="Correo" id="correo" name="correo" class="isRequired" />
+              </div>
+              <div class="col">
+                <label>CP</label>
+                <input type="text" placeholder="CP" id="cp" name="cp" class="isRequired" />
+              </div>
+
+
+            </div>
+            <div class="row c2">
+              <div class="col">
+                <label>Dirección</label>
+                <input type="text" placeholder="Dirección" id="direccion" name="direccion" class="isRequired" />
+              </div>
+              <div class="col">
+                <label>Observaciones</label>
+                <input type="text" placeholder="Observaciones" id="observaciones" name="observaciones" class="isRequired" />
+              </div>
+            </div>
+
+            <div class="row">
+              <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered">
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Nombre</th>
+                  <th>Tel. Móvil</th>
+                  <th>Correo</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="row actions">
+              <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+            </div>
+
+
+
+
+        </form>
+      </div>
+      <div class="tab t2">
+        <h1><i class="far fa-folder-open"></i> Documentos</h1>
+        <div class="row c6x4">
+          <div class="col">
+            <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th>(+)</th>
+                <th>Documento</th>
+                <th>Fecha</th>
+                <th>Notas</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>DepositoMarzo.pdf</td>
+                  <td>20-MAR-2019</td>
+                  <td>Documento escaneado ficha de deposito</td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>DepositoABR.pdf</td>
+                  <td>01-ABR-2019</td>
+                  <td>Documento escaneado ficha de deposito abril</td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+          </div>
+          <div class="col">
+            <div class="upload"></div>
+            <style>
+            .upload { width: 100%; min-height: 250px; border: #efefef solid 1px; background-color: #f7f7f7;}
+            </style>
+          </div>
+        </div>
+      </div>
+      <div class="tab t3"><h2>Tab 3</h2></div>
+      <div class="tab t4">
+        <h1><i class="fas fa-chart-line"></i> Estadística de Peso 2019</h1>
+
+
+
+        <style>
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+
+      </div>
+      <div class="tab t5"><h2>Tab 5</h2></div>
+      <div class="tab t6">
+        <h1>Contratación de Servicios</h1>
+		<table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Venta</td>
+                  <td>Cliente contrata paquete de un total de $7,900.00 y  </td>
+                  <td>12 de Abril del 2019</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+        <h1>Pagos (Abonos)</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Abono</td>
+                  <td>Abono de $2,000.00 MXN resta un saldo de $950.00</td>
+                  <td>13 de Abril del 2019</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+        <h1>Liquidación</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Finiquito</td>
+                  <td>Cliente realiza finiquito de $500.00</td>
+                  <td>14 de Abril del 2019</td>
+                </tr>
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+      </div>
+      <div class="tab t7">
+        <h1>Actividades por Vencer</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th align="left">Concepto</th>
+                <th>Descripción</th>
+                <th >Fecha</th>
+				<th>Estatus</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Saldo Pendiente</td>
+                  <td>Cliente tiene saldo pendiente a 7 días de evento</td>
+                  <td>12 de Abril del 2019</td>
+                  <td>Abierto</td>
+                </tr>
+				   <tr>
+                  <td>Abono</td>
+                  <td>Cliente lleva más de (3) meses sin abonar a su estado de cuenta</td>
+                  <td>12 de Abril del 2019</td>
+                  <td>Abierto</td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+
+
+
+      </div>
+      <div class="tab t8">
+        <h1>Tareas</h1>
+        <ul>
+          <li><input type="checkbox"/> Poner Fierro</li>
+          <li><input type="checkbox"/> Primer baño de garrapatas</li>
+        </ul>
+      </div>
+      <div class="tab t10">
+		<h1>Control de Actividades</h1>
+		  <table cellspacing="0" cellpadding="0" class="bordered">
+              <thead>
+              <tr>
+                <th>(+)</th>
+                <th align="left">Actividad</th>
+                <th>Frecuencia</th>
+                <th >Alerta</th>
+				<th>Notificar</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>Estado de Cuenta</td>
+                  <td align="center">
+				  	<select><option>Mensual</option><option>Quincenal</option></select>
+				  </td>
+                  <td align="center"><input type="checkbox" /></td>
+                  <td></td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+				<tr>
+                  <td></td>
+                  <td>Actividad Programada</td>
+                  <td align="center">
+				  	<select><option>7 Días Antes</option><option>1 Día Antes</option></select>
+				  </td>
+                  <td align="center"><input type="checkbox" /></td>
+                  <td></td>
+                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+
+              </tfoot>
+            </table>
+      </div>
+
+
+    </div>
+
+    </section>
+
+  </section> <!-- /panel -->
+  </main>
+
+
+  <script>
+  var objCliente;
+  $(document).ready(function(e){
+  objCliente = new App.Cliente();
+  objDatagrid.execute(
+      { ctrl : "cliente",
+        data: { exec : "getClientes" },
+        callback: function(r){
+          objCliente.data = r.json.data;
+          var data = r.json.data;
+          var buffer = '';
+          for(var i=0;i<data.length;i++){
+            buffer += '<tr><td>'+data[i].id+'</td><td>'+data[i].nombre+'</td></tr>';
+
+          }
+          console.log(buffer);
+          $("#tblClientes > tbody").html(buffer);
+        }
+      });
+});
+  </script>
+
+
+
+ </body>
+ </html>

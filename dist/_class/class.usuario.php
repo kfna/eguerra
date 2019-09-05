@@ -8,7 +8,7 @@ class Usuario extends Helper {
   var $contrasena;
   var $status;
 
-  public function Usuario(){ $this->sql = new dbo(); }
+  public function __construct(){ $this->sql = new dbo(); }
 
   public function db($key){
     switch($key){

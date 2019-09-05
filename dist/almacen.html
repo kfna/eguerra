@@ -1,0 +1,181 @@
+ <!DOCTYPE html>
+ <html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>Estudio Guerra Web Application | by KFNA</title>
+     <meta name="description" content="DESCRIPTION">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+     <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="_js/all.js"></script>
+
+    <link rel="stylesheet" href="css/app.css">
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+ </head>
+
+ <body>
+ <header>
+    <div class="row">
+      <div class="col left">
+        <ul class="links">
+          <li><a href="#" class="collapse"><span class="top"></span><span class="middle"></span><span class="bottom"></span></a></li>
+          <li><a href="#" class="reload"><i class="fas fa-redo"></i></a></li>
+          <li>|</li>
+          <li><a href="#" class="alerts"><i class="far fa-bell"></i><span class="on"></span></a></li>
+          <li><input type="text" placeholder="Búsqueda..."/></li>
+
+
+        </ul>
+      </div>
+      <div class="col right"></div>
+    </div>
+  </header>
+<main id="app">
+  <section class="sidebar">
+    <div class="brand">
+      <h1>estudio<span>eguerra</h1>
+      <div class="utils">
+        <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
+        <a href="#" title="Mapa"><i class="fas fa-map-marked-alt"></i></a>
+      </div>
+    </div>
+    <div class="user">
+      <div class="avatar"><img src="uploads/avatar.jpg" /><span class="online"></span></div>
+      <h2>Luis Cruz</h2><h3>Administrador</h3>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="ventas.html" class=""><i class="fas fa-cash-register"></i>Ventas <span>&rsaquo;</span></a></li>
+    
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users"></i>Clientes <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="clientes.html">Acceso a Clientes</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-tractor"></i>Catálogos <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Dashboard</a>
+          <a href="servicios.html">Paquetes y Servicios</a>
+          <a href="#">Agendas Programadas</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-user-tag"></i>Proveedores <span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Proveedores y Existencias</a>
+          <a href="#">Detalle de Servicios</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-comment-dollar"></i>Pagos<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Pago a Trabajadores</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-box"></i>Reportes<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Reportes Generales</a>
+          <a href="#">Video y Secuencia</a>
+          <a href="#">Aenda Programada</a>
+          <a href="#">Trabajos Pendientes</a>
+          <a href="#">Navidad</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-th"></i>Inventarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Almacenes</a>
+          <a href="#">Existencias</a>
+        </li>
+        <li><a href="#" class="onClickExpand"><i class="fas fa-users-cog"></i>Usuarios<span>&rsaquo;</span></a></li>
+        <li class="sub">
+          <a href="#">Control de Acceso</a>
+          <a href="#">Asistencia Personal</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <section class="panel">
+    <section id="almacen" class="page cliente">
+	<div class="breadcrumb"><h5>Home &raquo; Administración de Almacenes</h5></div>
+    <script>
+    $(document).ready(function(){
+      $(".tabs a").click(function(){
+        $(".tabs a").removeClass("active");
+        $(this).addClass("active");
+        var idx = $(this).data("idx");
+        $(".tab").removeClass("active");
+        $(".tab.t"+idx).addClass("active");
+      });
+    });
+    </script>
+    <div class="panel window">
+      <div class="tabs"><a href="#" class="tref active" data-idx="1">Registro</a></div>
+      <div class="tab t1 active">
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Almacen</h1>
+        <form id="frmAlmacen" name="frmAlmacen" data-model="almacen">
+          <div class="row c2">
+            <div class="col">
+              <label>Nombre de Almacen</label>
+              <input type="text" placeholder="Nombre del Almacen" id="almacen" name="almacen" class="isRequired" />
+              <br />
+              <label>Coordenadas</label>
+              <input type="text" placeholder="Nombre del Almacen" id="almacen" name="almacen" class="isRequired half" />
+              <br />
+              <label>Descripción</label>
+              <textarea id="descripcion" name="descripcion" placeholder="Breve descripción del servicio" rows="10"></textarea>
+            </div>
+            <div class="col">
+              <label>Seleccione ubicación</label>
+              <div id="map"></div>
+            </div>
+            </div>
+
+          </div>
+
+
+          <div class="row actions">
+            <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+          </div>
+
+          <div class="row">
+            <table id="tblAlmacen" cellpadding="0" cellspacing="0" class="bordered onLoad" data-exec="getAlmacenes">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Almacen</th>
+                  <th>Descripción</th>
+                  <th></th>
+                </tr>
+              </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+              </table>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var objAnimal;
+    $(document).ready(function(e){
+		objAnimal = new App.Animal();
+		objDatagrid.execute(
+        { ctrl : "almacen",
+          data: { exec : "getAlmacenes" },
+          callback: function(r){
+            var data = r.json.data;
+			  console.log(data);
+            var buffer = '';
+            for(var i=0;i<data.length;i++){
+              buffer += '<tr><td align="center">'+data[i].id+'</td><td align="center">'+data[i].almacen+'</td><td align="center">'+data[i].descripcion+'</td><td>E | E</td></tr>';
+            }
+            console.log(buffer);
+            $("#tblAlmacen > tbody").html(buffer);
+          }
+        });
+	});
+    </script>
+
+  </section> <!-- /panel -->
+  </main>
+
+ </body>
+ </html>

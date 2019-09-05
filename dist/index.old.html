@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estudio Guerra | CMS</title>
+    <meta name="description" content="DESCRIPTION">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="_js/all.js"></script>
+</head>
+
+<body>
+ <div id="notice" class="error">
+ <p>Usuario y/o contraseña invalido.</p>
+ </div>
+ <main id="login">
+   <div class="logo"><img src="img/runnertopia-logo-login.png" /></div>
+   <div class="row">
+     <div class="col left"></div>
+     <div class="col right">
+       <div class="auth">
+         <div class="table">
+           <div class="tr">
+                <div class="login">
+                  <form id="formAuth" name="formAuth" data-ctrl="auth" class="onReady">
+                    <h1>Iniciar Sesión</h1>
+                    <div class="input error">
+                      <input type="text" id="email" name="email" value="" placeholder="E-mail" class="txt required">
+                      <span class="required">Requerido</span>
+                    </div>
+                    <div class="input">
+                      <input type="text" id="pass" name="pass" value="" placeholder="Contraseña" class="txt required">
+                      <span class="required">Requerido</span>
+                    </div>
+                    <p><a href="/recuperar-contrasena">Recuperar Contraseña</a></p>
+                    <br />
+                    <a href="javascript:void(0)" class="btn onClick" data-exec="auth">Ingresar</a>
+                  </form>
+
+                  <form id="formRecover" name="formRecover" data-ctrl="auth" class="hidden">
+                    <h1>Recuperar Contraseña</h1>
+                    <div class="input">
+                      <input type="text" id="email" name="email" value="" placeholder="E-mail" class="txt required">
+                      <span class="required">Requerido</span>
+                    </div>
+                    <a href="javascript:void(0)" class="btn onClick" data-exec="recover">Aceptar</a>
+                  </form>
+
+                </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </main>
+ <script>
+ var objApp;
+ $(document).ready(function(e){ objApp = new App.Auth(); });
+ </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+{{> head}}
+{{> header}}
+
+<main id="app">
+  {{> sidebar}}
+  <section class="panel">
+    <section id="almacen" class="page cliente">
+	<div class="breadcrumb"><h5>Home &raquo; Administración de Almacenes</h5></div>
+    <script>
+    $(document).ready(function(){
+      $(".tabs a").click(function(){
+        $(".tabs a").removeClass("active");
+        $(this).addClass("active");
+        var idx = $(this).data("idx");
+        $(".tab").removeClass("active");
+        $(".tab.t"+idx).addClass("active");
+      });
+    });
+    </script>
+    <div class="panel window">
+      <div class="tabs"><a href="#" class="tref active" data-idx="1">Registro</a></div>
+      <div class="tab t1 active">
+        <h1><i class="fas fa-pencil-alt"></i> Registro de Almacen</h1>
+        <form id="frmAlmacen" name="frmAlmacen" data-model="almacen">
+          <div class="row c2">
+            <div class="col">
+              <label>Nombre de Almacen</label>
+              <input type="text" placeholder="Nombre del Almacen" id="almacen" name="almacen" class="isRequired" />
+              <br />
+              <label>Coordenadas</label>
+              <input type="text" placeholder="Nombre del Almacen" id="almacen" name="almacen" class="isRequired half" />
+              <br />
+              <label>Descripción</label>
+              <textarea id="descripcion" name="descripcion" placeholder="Breve descripción del servicio" rows="10"></textarea>
+            </div>
+            <div class="col">
+              <label>Seleccione ubicación</label>
+              <div id="map"></div>
+            </div>
+            </div>
+
+          </div>
+
+
+          <div class="row actions">
+            <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+          </div>
+
+          <div class="row">
+            <table id="tblAlmacen" cellpadding="0" cellspacing="0" class="bordered onLoad" data-exec="getAlmacenes">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Almacen</th>
+                  <th>Descripción</th>
+                  <th></th>
+                </tr>
+              </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+              </table>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var objAnimal;
+    $(document).ready(function(e){
+		objAnimal = new App.Animal();
+		objDatagrid.execute(
+        { ctrl : "almacen",
+          data: { exec : "getAlmacenes" },
+          callback: function(r){
+            var data = r.json.data;
+			  console.log(data);
+            var buffer = '';
+            for(var i=0;i<data.length;i++){
+              buffer += '<tr><td align="center">'+data[i].id+'</td><td align="center">'+data[i].almacen+'</td><td align="center">'+data[i].descripcion+'</td><td>E | E</td></tr>';
+            }
+            console.log(buffer);
+            $("#tblAlmacen > tbody").html(buffer);
+          }
+        });
+	});
+    </script>
+
+  </section> <!-- /panel -->
+  </main>
+
+{{> footer}}
