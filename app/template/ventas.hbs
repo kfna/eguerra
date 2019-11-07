@@ -85,11 +85,14 @@
               </style>
               <div class="pos">
 
-                <div class="search">
-                  <input type="text" placeholder="Búsqueda de servicios y paquetes" />
+                <div id="servicios" class="search">
+                <input type="text" placeholder="Búsqueda..." id="servicios" name="servicios" class="isRequired isAutoComplete search" />
+                <div id="lst_servicios" name="lst_servicios" class="select">
+                  <ul class="list"></ul>
+                </div>
                 </div>
 
-                <table cellpadding="0" cellspacing="0" class="bordered">
+                <table id="tblOrden" name="tblOrden" cellpadding="0" cellspacing="0" class="bordered">
                   <thead>
                   <tr>
                     <th>#</th>
@@ -99,36 +102,7 @@
                     <th>Precio</th>
                   </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td align="center">1</td>
-                      <td>1</td>
-                      <td>Concepto</td>
-                      <td>$0.00</td>
-                      <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                   <tfoot>
 
                   </tfoot>
@@ -138,7 +112,7 @@
               <table align="right">
                 <tr>
                   <td>Total</td>
-                  <td>$0.00</td>
+                  <td><span class="total">$0.00</span></td>
                 </tr>
                 <tr>
                   <td>Anticipo</td>
@@ -224,6 +198,52 @@ objDatagrid.execute(
       }
     });
 });
+</script>
+
+
+<script>
+var cart = [];
+App.onReady = function(){
+  Page = {
+    servicios : null,
+    init: function(){
+      var _self = this;
+
+      objDAO.execute("servicio",{ exec : "getServicios"},function(e){
+        _self.data = e.json.data;
+        var buffer ='';
+        for(var i=0;i<_self.data.length;i++){
+          buffer += '<li class="nombre"><a href="javascript:void(0)" data-idx="'+i+'">'+_self.data[i].servicio+'</a></li>';
+        }
+        $("#servicios ul.list").html(buffer);
+        $("#servicios ul li a").click(function(){
+          $("#servicios .select").fadeOut();
+          var id = $(this).data("idx");
+          cart.push(_self.data[id]);
+          render();
+
+        })
+        _self.mounted();
+      });
+    },
+    mounted: function(){
+      var _self = this;
+    }
+  }
+  Page.init();
+};
+
+function render(){
+  var buffer = '';
+  var total = 0;
+  for(i=0;i<cart.length;i++){
+    buffer +='<tr><td align="center">1</td><td>1</td><td>'+cart[i].servicio+'</td><td>'+cart[i].costo+'</td><td align="center"><a href="#">eliminar</a></td></tr>';
+    total += parseFloat(cart[i].costo);
+  }
+
+  $("#tblOrden > tbody").html(buffer);
+  $("span.total").html(total);
+}
 </script>
 
 {{> footer}}

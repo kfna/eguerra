@@ -1,0 +1,63 @@
+<div class="panel window">
+  <div class="tabs"><a href="#" class="tref active" data-idx="1">Catálogo</a></a></div>
+  <div class="tab t1 active">
+    <h1><i class="fas fa-pencil-alt"></i> Registro de Articulo</h1>
+    <form id="frmArticulo" name="frmArticulo" data-model="articulo">
+      <div class="row c3">
+        <div class="col">
+          <label>Nombre de Articulo</label>
+          <input type="text" placeholder="Nombre" id="articulo" name="articulo" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>Unidad</label>
+          <input type="text" placeholder="(Ej. kg,lts,pieza,lote)" id="unidad" name="unidad" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>Código de Barras</label>
+          <input type="text" placeholder="" id="codigo" name="codigo" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row c3">
+        <div class="col">
+          <label>Proveedor</label>
+          <select id="id_proveedor" name="id_proveedor">
+            <option>NULL</option>
+          </select>
+          <!-- <input type="text" id="proveedor" name="proveedor" />-->
+
+        </div>
+        <div class="col">
+          <label>Descripción</label>
+          <input type="text" placeholder="" id="descripcion" name="descripcion" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>Precio Base</label>
+          <input type="text" placeholder="" id="costo_base" name="costo_base" class="" />
+        </div>
+      </div>
+
+      <div class="row actions">
+        <div class="col"><a id="btnSave" href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+      </div>
+      <input type="hidden" id="id" name="id" value="" />
+    </form>
+  </div>
+</div>
+
+<script>
+  Form = {
+    data : null,
+    init: function(){
+      var _self = this;
+      objDAO.execute("proveedor",{ exec : "getProveedor" },function(e){
+        var data = e.json.data;
+        var buffer = '';
+        for(var i=0; i<data.length;i++){ buffer += '<option value="'+data[i].id+'">'+data[i].proveedor+'</option>'; }
+        $("#id_proveedor").html(buffer);
+
+      });
+    },
+  }
+  Form.init();
+</script>

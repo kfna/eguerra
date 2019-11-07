@@ -14,7 +14,7 @@ App.Forms.prototype = {
   },
   addEventListeners: function(file){
     var _self = this;
-    $("form").on("click","a.onClick",function(){
+    $(document).on("click","form a.onClick",function(){
       switch($(this).data("exec")){
         case "save": _self.save($(this)); break;
       }
@@ -22,13 +22,13 @@ App.Forms.prototype = {
   },
   save: function(e){
     var _self = this;
-	var el = "#"+e.closest("form").attr("id");
-	var ctrl = e.closest("form").data("model");
+	  var el = "#"+e.closest("form").attr("id");
+	  var ctrl = e.closest("form").data("model");
     _self.reset(el);
     if(!_self.validate(el)) return;
     var data = objDAO.toObject($(el).serializeArray());
     var result = function(r){
-      if(r.status==200){
+      if(r.status==202){
         alert("elemento guardado");
       }else{
         $("#notice").addClass("show");

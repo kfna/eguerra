@@ -3,7 +3,6 @@ header('Content-Type: text/html; charset=utf-8');
 session_start();
 require_once('../_class/class.usuario.php');
 $obj = new Usuario();
-
 switch($_REQUEST['exec']){
   case "import_trans":
     $request = $_GET['data'];

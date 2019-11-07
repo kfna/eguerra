@@ -150,10 +150,13 @@ form textarea { display: block; width: 100%; border: #cccccc solid 1px; text-ind
 
 /* TABLE BORDERED */
 table.bordered { border: #e8edf1 solid 1px; width: 100%; }
-table.bordered thead tr th { font-size: 11px; letter-spacing: .02em; text-transform: uppercase;;}
+table.bordered thead tr th {  text-transform: uppercase; font-size: 12px; letter-spacing: .07em; background-color: #ecf0f2; padding:12px;}
 table.bordered tbody tr td { font-size:12px; color: #333; padding: 10px; border-right: #e8edf1 solid 1px; border-bottom: #e8edf1 solid 1px; }
 table.bordered tbody tr td:last-child { border-right: none; }
 table.bordered tbody tr:last-child td { border-bottom: none; }
+
+table.bordered tfoot tr td { font-size:12px; color: #333; padding: 10px; border-right: #fff solid 1px; border-bottom: #e8edf1 solid 1px; border-top:#000 solid 2px; }
+
 
 /* PANELS */
 .panel.window { background-color: #fff; padding: 20px; box-shadow: 0px 0px 15px rgba(0,0,0,.10); margin-bottom: 25px; padding-top: 0px !important; }
@@ -190,5 +193,42 @@ table.bordered tbody tr:last-child td { border-bottom: none; }
 .hidden { display: none;}
 
 /* UI COMPONENTS: Datagrid */
-.datagrid { }
-.datagrid table { width: 100%; border: #e4e4e4 solid 1px; margin: auto; background-color: #fff;}
+.datagrid { background-color:#fff;}
+.datagrid  .actions { padding-top: 10px; padding-bottom: 25px;}
+.datagrid h2 { font-weight: 100; padding-top: 0; margin-top: 0; }
+.datagrid h2 span { font-weight: 600; }
+.datagrid table tbody { display: none;}
+.datagrid table tbody tr:hover { background-color: rgba(0,0,0,.015); cursor: pointer;}
+
+.table { display: inline-table; width: 100%; min-height: 100%; }
+.table .tr { display: table-cell; vertical-align: middle; }
+
+
+/* MODAL */
+#modal { position: fixed; top:0; bottom: 0; left:0; right: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,.80); z-index: 1000; display: none;}
+#modal .window { position: absolute; width: 100%; max-width: 650px; margin: auto; left:0; right: 0; top:30px;}
+#modal .alert { width: 300px; height: 150px; background-color: #fff; position: absolute; left:0; right: 0; margin: auto;}
+#modal .alert h3 { margin: 0; padding: 0; text-align: center;}
+#modal .alert p { margin: 0; padding: 0; text-align: center;}
+
+/* UI LAYOUT: ROWS /  COLUMNS */
+.row { width: 100%; font-size: 0;}
+.row .col { font-size: 14px; display: inline-block; vertical-align: top; width: 50%;}
+.row .col.aleft { text-align: left;}
+.row .col.aright { text-align: right;}
+.row .col.vmiddle { vertical-align: middle;}
+.row.c2 .col { width: 50%;}
+.row.c3 .col { width: 33.33%}
+.row.c4 .col { width: 25%; }
+.row.c6x4 .col:first-child { width: 60%; }
+.row.c6x4 .col:last-child { width: 40%; }
+.row.spacing .col:first-child { padding-right: 10px; }
+.row.spacing .col:last-child { padding-left: 10px; }
+.row.full .col { width:100%;}
+
+
+.container { background-color:#fff; padding: 20px;}
+.container .head { border-bottom: #e4e4e4 solid 1px;  margin-bottom: 30px;}
+.container h2 { font-weight: 100; padding-top: 0; margin-top: 0; font-size: 21px; }
+.container h2 span { font-weight: 600; }
+.container h2 em {font-size: 12px;}

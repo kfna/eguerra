@@ -1,5 +1,4 @@
 <?php
-
 require_once("class.helper.php");
 
 class Usuario extends Helper {

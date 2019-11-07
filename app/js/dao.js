@@ -18,17 +18,9 @@ App.DAO.prototype = {
 			error: function (r) { console.log(r); }
 	  });
   },
-  toObject : function(form,include){
+  toObject : function(form){
     var data = {};
-		console.log("asdasfasfasfafa");
-    $.each(form, function(key,element){
-			console.log("----");
-			console.log("EL"+element);
-			console.log($("#"+element.name).prop('nodeName');
-			console.log("----");
-			console.log("asdasfasfasfafa");
-		  data[element.name] = element.value;
-		});
+    $.each(form, function(key,element){ data[element.name] = element.value; });
 	  return data;
   },
 }

@@ -9,9 +9,9 @@ switch($_REQUEST['exec']){
     $request = $_POST['data'];
     $obj->set_tipo(1)
         ->set_servicio($request['servicio'])
-      ->set_costo($request['costo'])
-      ->set_status(1)
-               ->db('insert');
+        ->set_costo($request['costo'])
+        ->set_status(1)
+        ->db('insert');
     $result = NULL;
     $result['lid'] = $obj->lastInserted;
     $result['status'] = 200;

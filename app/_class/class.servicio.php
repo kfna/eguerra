@@ -14,12 +14,11 @@ class Servicio extends Helper {
   public function db($key){
     switch($key){
       case "insert":
-	    $query = "INSERT INTO servicio (tipo,servicio,costo,status) VALUES ('".$this->tipo."','".$this->servicio."','".$this->costo."','".$this->status."')";
-    break;
-    case "insertPaquete":
-    $query = "INSERT INTO servicio_atributos (id_servicio,paquete) VALUES ('".$this->id_servicio."','".$this->paquete."')";
-  break;
-
+	      $query = "INSERT INTO servicio (tipo,servicio,costo,status) VALUES ('".$this->tipo."','".$this->servicio."','".$this->costo."','".$this->status."')";
+      break;
+      case "insertPaquete":
+        $query = "INSERT INTO servicio_atributos (id_servicio,paquete) VALUES ('".$this->id_servicio."','".$this->paquete."')";
+      break;
       case "update":
 	    $query = "UPDATE proveedor SET
 					almacen = '".$this->almacen."',
