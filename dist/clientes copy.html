@@ -13,8 +13,6 @@
 
  </head>
  <body>
-
-
 <div id="modal">
   <div class="window"></div>
 </div>
@@ -22,21 +20,17 @@
  <header>
     <div class="row">
       <div class="col left">
-        <ul class="search"><i class="fas fa-search"></i><input type="text" placeholder="Búsqueda..."/></div>
-      <div class="col right">
-        <ul>
-          <li>
-            <a href="#">Luis Cruz</a> down
-          </li>
-          <li>
-            <a href="#">
-              <span class="avatar"><img src="uploads/avatar.jpg"></span>
-              <span class="username">Luis Cruz</span>
-              <span class="icon">^</span>
-            </a>
-          </li>
+        <ul class="links">
+          <li><a href="#" class="collapse"><span class="top"></span><span class="middle"></span><span class="bottom"></span></a></li>
+          <li><a href="#" class="reload"><i class="fas fa-redo"></i></a></li>
+          <li>|</li>
+          <li><a href="#" class="alerts"><i class="far fa-bell"></i><span class="on"></span></a></li>
+          <li><input type="text" placeholder="Búsqueda..."/></li>
+
+
         </ul>
       </div>
+      <div class="col right"></div>
     </div>
   </header>
 
@@ -46,7 +40,7 @@
       <h1>estudio<span>eguerra</h1>
       <div class="utils">
         <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
-        <a href="#" title="Mapa"><i class="fas fa-calendar"></i></a>
+        <a href="#" title="Mapa"><i class="fas fa-map-marked-alt"></i></a>
       </div>
     </div>
     <div class="user">
@@ -97,16 +91,15 @@
     </nav>
   </section>
   <section class="panel">
-    <section id="almacen" class="page cliente">
-	    <div class="breadcrumb"><h5>Home &raquo; Administración de Articulos</h5></div>
+    <section class="page">
 
         <div class="container">
           <div class="row head">
             <div class="col">
-              <h2>Catálogo de<span> Productos & Servicios</span></h2>
+              <h2>Catálogo de<span> Clientes</span></h2>
             </div>
             <div class="col aright">
-              <a href="#" class="btn add onClick" data-exec="modal" data-src="form.servicio">+</a>
+              <a href="#" class="btn add onClick" data-exec="modal" data-src="form.cliente">+</a>
               <a href="#" class="btn more">:</a>
             </div>
           </div>
@@ -116,36 +109,35 @@
             <div class="actions">
               <div class="row">
                 <div class="col">
-                  <label class="small">Mostrar <select><option>25</option><option>50</option><option>100</option></select> resultados</label>
+                  <select><option>25</option><option>50</option><option>100</option></select>
                 </div>
                 <div class="col aright">
-                  <label>Búsqueda: <input type="text" /></label>
+                  <label><input id="search" name="search" type="text" class="" placeholder="Búsqueda..." /></label>
                 </div>
               </div>
             </div>
-            <table id="tblServicio" cellpadding="0" cellspacing="0" class="bordered" data-ctrl="servicio">
+            <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered" data-ctrl="cliente" data-search="nombre">
               <thead>
                 <tr>
-                  <th>No.</th>
-                  <th>Servicios</th>
-                  <th>Costo</th>
-                  <th>Existencia</th>
-                  <th>Proceso</th>
+                  <th>Cliente No.</th>
+                  <th>Nombre</th>
+                  <th>Tel.</th>
+                  <th>Tel. Móvil</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr data-id="{id}">
-                  <td align="center">{id}</td>
-                  <td align="center">{servicio}</td>
-                  <td align="center">${costo}</td>
-                  <td align="center"><i class="fas fa-check"></i></td>
-                  <td align="center"><i class="fas fa-check"></i></td>
+                  <td align="center">{folio}</td>
+                  <td align="center">{nombre}</td>
+                  <td align="center">{telefono}</td>
+                  <td align="center">{movil}</td>
                   <td align="center"><a href="javascript:void(0)" class="onClick" data-exec="modalUpdate" data-src="form.articulo">editar</a> | <a href="javascript:void(0)" class="onClick" data-exec="delete">eliminar</a></td>
                 </tr>
               </tbody>
               <tfoot></tfoot>
             </table>
+            <div class="pagination"></div>
           </div>
         </div>
 
@@ -158,17 +150,18 @@
 App.onReady = function(){
   Page = {
     data : null,
-    table : $("#tblServicio"),
+    table : $("#tblClientes"),
     init: function(){
       var _self = this;
-      objDAO.execute("servicio",{ exec : "getServicios"},function(e){
+      objDAO.execute("cliente",{ exec : "getClientes"},function(e){
         _self.data = e.json.data;
         _self.mounted();
       });
     },
     mounted: function(){
       var _self = this;
-      objDatagrid.renderTable(_self.data,_self.table);
+      objDatagrid.setTable(_self.table,_self.data);
+      objDatagrid.renderTable(_self.data);
     }
   }
   Page.init();

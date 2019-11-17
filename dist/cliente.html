@@ -97,56 +97,18 @@
     </nav>
   </section>
   <section class="panel">
-    <section id="almacen" class="page cliente">
-	    <div class="breadcrumb"><h5>Home &raquo; Administración de Articulos</h5></div>
+    <section class="page">
 
         <div class="container">
           <div class="row head">
             <div class="col">
-              <h2>Catálogo de<span> Productos & Servicios</span></h2>
+              <h2>Ver de<span> Clientes</span></h2>
             </div>
-            <div class="col aright">
-              <a href="#" class="btn add onClick" data-exec="modal" data-src="form.servicio">+</a>
-              <a href="#" class="btn more">:</a>
-            </div>
+            <div class="col aright">  </div>
           </div>
 
 
-          <div class="datagrid">
-            <div class="actions">
-              <div class="row">
-                <div class="col">
-                  <label class="small">Mostrar <select><option>25</option><option>50</option><option>100</option></select> resultados</label>
-                </div>
-                <div class="col aright">
-                  <label>Búsqueda: <input type="text" /></label>
-                </div>
-              </div>
-            </div>
-            <table id="tblServicio" cellpadding="0" cellspacing="0" class="bordered" data-ctrl="servicio">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Servicios</th>
-                  <th>Costo</th>
-                  <th>Existencia</th>
-                  <th>Proceso</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr data-id="{id}">
-                  <td align="center">{id}</td>
-                  <td align="center">{servicio}</td>
-                  <td align="center">${costo}</td>
-                  <td align="center"><i class="fas fa-check"></i></td>
-                  <td align="center"><i class="fas fa-check"></i></td>
-                  <td align="center"><a href="javascript:void(0)" class="onClick" data-exec="modalUpdate" data-src="form.articulo">editar</a> | <a href="javascript:void(0)" class="onClick" data-exec="delete">eliminar</a></td>
-                </tr>
-              </tbody>
-              <tfoot></tfoot>
-            </table>
-          </div>
+
         </div>
 
     </section>
@@ -158,17 +120,14 @@
 App.onReady = function(){
   Page = {
     data : null,
-    table : $("#tblServicio"),
+
     init: function(){
       var _self = this;
-      objDAO.execute("servicio",{ exec : "getServicios"},function(e){
-        _self.data = e.json.data;
-        _self.mounted();
-      });
+
     },
     mounted: function(){
       var _self = this;
-      objDatagrid.renderTable(_self.data,_self.table);
+
     }
   }
   Page.init();
