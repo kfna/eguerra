@@ -1,0 +1,97 @@
+
+
+
+<div class="panel window">
+  <div class="tabs"><a href="#" class="tref active" data-idx="1">Abono</a></a></div>
+  <div class="tab t1 active">
+    <br />
+    <form id="frmAbono" name="frmAbono" data-model="venta">
+
+
+      <div class="row c2">
+        <div class="col">
+          <label>Cliente</label>
+          <input type="text" placeholder="" id="cliente" name="cliente" class="isRequired" readonly />
+        </div>
+        <div class="col">
+          <label>Fecha</label>
+          <input type="text" placeholder="" id="fecha" name="fecha" class="isRequired" readonly />
+        </div>
+
+      </div>
+
+      <div class="row c3">
+        <div class="col">
+          <label>Monto</label>
+          <input type="text" placeholder="$0.00" id="monto" name="monto" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>Tipo</label>
+          <select id="tipo" name="tipo">
+            <option value="Abono">Abono</option>
+            <option value="Anticipo">Anticipo</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Forma de Pago</label>
+          <select id="medio" name="medio">
+            <option value="tc">Tarjeta de Crédito</option>
+            <option value="td">Tarjeta de Debito</option>
+            <option value="ef">Efectivo</option>
+            <option value="tr">Transferencia</option>
+            <option value="de">Deposito</option>
+          </select>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="row actions">
+        <div class="col"><a id="btnSave" href="javascript:void(0)" data-exec="saveAbono" class="btn onClick">Guardar</a></div>
+      </div>
+      <input type="hidden" id="id_venta" name="id_venta" value="" />
+    </form>
+  </div>
+</div>
+
+<script>
+  var Form = {};
+  Form = {
+    data : null,
+    init: function(){
+      var params = objUI.getModalParams();
+      var _self = this;
+      var today = new Date();
+      var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+      $("#fecha").val(date);
+      $("#id_venta").val(params[0]);
+
+
+
+      objDAO.execute("venta",{ exec : "getVenta", data : { id: params[0] } },function(e){
+        var venta = e.json.data;
+        $("#cliente").val(venta.cliente);
+      });
+
+
+
+      $("select").on("change",function(){
+        if($(this).val()=="bundle"){
+          $("#paquete").show();
+        }else{
+          $("#paquete").hide();
+
+        }
+      });
+
+
+    },
+    mounted: function(){
+      var _self = this;
+    },
+
+  }
+
+</script>

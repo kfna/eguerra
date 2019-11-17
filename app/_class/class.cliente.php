@@ -3,15 +3,17 @@ require_once("class.helper.php");
 
 class Cliente extends Helper {
   var $id;
+  var $folio;
   var $nombre;
   var $datos;
+  var $medio;
   var $status;
 
   public function __construct(){ $this->sql = new dbo(); }
 
   public function db($key){
     switch($key){
-      case "insert": $query = "INSERT INTO cliente (nombre,datos,status) VALUES ('".$this->nombre."','".$this->datos."','".$this->status."')";
+      case "insert": $query = "INSERT INTO cliente (folio,nombre,datos,medio,status) VALUES ('".$this->folio."','".$this->nombre."','".$this->datos."','".$this->medio."','".$this->status."')";
 	    break;
       case "update": $query = "UPDATE usuario SET tipo_usuario = '".$this->tipo_usuario."',
 		                                          nombre = '".$this->nombre."',
@@ -51,6 +53,11 @@ class Cliente extends Helper {
 	  if($this->search!=NULL) $query .= " AND ".$this->search_field." LIKE '".$this->search."%'";
 	  if($this->order!=NULL) $query .= " ORDER BY ".$this->order;
 	  if($this->limit!=NULL) $query .= " LIMIT ".$this->limit;
+	  return $this->execute($query);
+  }
+
+  public function getClienteByFolio($folio){
+    $query = "SELECT * FROM cliente WHERE id > 0 AND folio='".$folio."'  LIMIT 1";
 	  return $this->execute($query);
   }
 

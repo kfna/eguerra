@@ -17,7 +17,8 @@ var path = {
 };
 
 function js() {
-  return gulp.src(['app/js/*.js', 'app/js/*.js']).pipe(concat('all.js')).pipe(uglify()).pipe(gulp.dest(path.js.dest));
+  //.pipe(uglify())
+  return gulp.src(['app/js/*.js', 'app/js/*.js']).pipe(concat('all.js')).pipe(gulp.dest(path.js.dest));
 }
 
 function css() {

@@ -4,344 +4,81 @@
 <main id="app">
   {{> sidebar}}
   <section class="panel">
+    <section class="page">
 
-    <section id="cliente" class="page">
-	<div class="breadcrumb"><h5>Home &raquo; Clientes</h5></div>
+        <div class="container">
+          <div class="row head">
+            <div class="col">
+              <h2>Catálogo de<span> Clientes</span></h2>
+            </div>
+            <div class="col aright">
+              <a href="#" class="btn add onClick" data-exec="modal" data-src="form.cliente">+</a>
+              <a href="#" class="btn more">:</a>
+            </div>
+          </div>
 
 
-    <script>
-    $(document).ready(function(){
-      $(".tabs a").click(function(){
-        $(".tabs a").removeClass("active");
-        $(this).addClass("active");
-        var idx = $(this).data("idx");
-        $(".tab").removeClass("active");
-        $(".tab.t"+idx).addClass("active");
-      });
-    });
-    </script>
-
-    <div class="panel window">
-
-      <div class="tabs">
-        <a href="javascript:void(0)" class="tref active" data-idx="1">Registro</a>
-        <a href="javascript:void(0)" class="tref" data-idx="2">Documentos</a>
-        <a href="javascript:void(0)" class="tref" data-idx="3">Agenda</a>
-        <a href="javascript:void(0)" class="tref" data-idx="6">Control (Historial)</a>
-        <a href="javascript:void(0)" class="tref" data-idx="7">Alertas</a>
-        <a href="javascript:void(0)" class="tref" data-idx="9">Notas</a>
-        <a href="javascript:void(0)" class="tref" data-idx="10">Recordatorios</a>
-      </div>
-      <div class="tab t1 active">
-        <div class="options">
-          <a href="#"><i class="fas fa-pencil-alt"></i></a>
-          <a href="#">&bull; &bull; &bull;</a>
-        </div>
-        <h1><i class="fas fa-pencil-alt"></i> Registro de Cliente</h1>
-        <form id="frmCliente" name="frmCliente" data-model="cliente">
-
-            <div class="row c2">
-              <div class="col">
-                <label>Nombre</label>
-                <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="isRequired number" />
-              </div>
-              <div class="col">
-                <label>Tel. Fijo</label>
-                <input type="text" placeholder="Teléfono" id="telefono" name="telefono" class="isRequired" />
+          <div class="datagrid">
+            <div class="actions">
+              <div class="row">
+                <div class="col">
+                  <select><option>25</option><option>50</option><option>100</option></select>
+                </div>
+                <div class="col aright">
+                  <label><input id="search" name="search" type="text" class="" placeholder="Búsqueda..." /></label>
+                </div>
               </div>
             </div>
-            <div class="row c3">
-              <div class="col">
-                <label>Tel. Móvil</label>
-                <input type="text" placeholder="Tel. Móvil" id="movil" name="movil" class="isRequired" />
-              </div>
-              <div class="col">
-                <label>Correo</label>
-                <input type="text" placeholder="Correo" id="correo" name="correo" class="isRequired" />
-              </div>
-              <div class="col">
-                <label>CP</label>
-                <input type="text" placeholder="CP" id="cp" name="cp" class="isRequired" />
-              </div>
-
-
-            </div>
-            <div class="row c2">
-              <div class="col">
-                <label>Dirección</label>
-                <input type="text" placeholder="Dirección" id="direccion" name="direccion" class="isRequired" />
-              </div>
-              <div class="col">
-                <label>Observaciones</label>
-                <input type="text" placeholder="Observaciones" id="observaciones" name="observaciones" class="isRequired" />
-              </div>
-            </div>
-
-            <div class="row">
-              <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered">
-                <thead>
+            <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered" data-ctrl="cliente" data-search="nombre">
+              <thead>
                 <tr>
-                  <th>No.</th>
+                  <th>Cliente No.</th>
                   <th>Nombre</th>
+                  <th>Tel.</th>
                   <th>Tel. Móvil</th>
-                  <th>Correo</th>
                   <th></th>
                 </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-
-                </tfoot>
-              </table>
-            </div>
-
-            <div class="row actions">
-              <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
-            </div>
-
-
-
-
-        </form>
-      </div>
-      <div class="tab t2">
-        <h1><i class="far fa-folder-open"></i> Documentos</h1>
-        <div class="row c6x4">
-          <div class="col">
-            <table cellspacing="0" cellpadding="0" class="bordered">
-              <thead>
-              <tr>
-                <th>(+)</th>
-                <th>Documento</th>
-                <th>Fecha</th>
-                <th>Notas</th>
-                <th></th>
-              </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td>DepositoMarzo.pdf</td>
-                  <td>20-MAR-2019</td>
-                  <td>Documento escaneado ficha de deposito</td>
-                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>DepositoABR.pdf</td>
-                  <td>01-ABR-2019</td>
-                  <td>Documento escaneado ficha de deposito abril</td>
-                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
+                <tr data-id="{id}">
+                  <td align="center">{folio}</td>
+                  <td align="center">{nombre}</td>
+                  <td align="center">{telefono}</td>
+                  <td align="center">{movil}</td>
+                  <td align="center"><a href="javascript:void(0)" class="onClick" data-exec="modalUpdate" data-src="form.articulo">editar</a> | <a href="javascript:void(0)" class="onClick" data-exec="delete">eliminar</a></td>
                 </tr>
               </tbody>
-              <tfoot>
-
-              </tfoot>
+              <tfoot></tfoot>
             </table>
-          </div>
-          <div class="col">
-            <div class="upload"></div>
-            <style>
-            .upload { width: 100%; min-height: 250px; border: #efefef solid 1px; background-color: #f7f7f7;}
-            </style>
+            <div class="pagination"></div>
           </div>
         </div>
-      </div>
-      <div class="tab t3"><h2>Tab 3</h2></div>
-      <div class="tab t4">
-        <h1><i class="fas fa-chart-line"></i> Estadística de Peso 2019</h1>
-
-
-
-        <style>
-    .container {
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
-
-
-      </div>
-      <div class="tab t5"><h2>Tab 5</h2></div>
-      <div class="tab t6">
-        <h1>Contratación de Servicios</h1>
-		<table cellspacing="0" cellpadding="0" class="bordered">
-              <thead>
-              <tr>
-                <th align="left">Concepto</th>
-                <th>Descripción</th>
-                <th >Fecha</th>
-                <th></th>
-              </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Venta</td>
-                  <td>Cliente contrata paquete de un total de $7,900.00 y  </td>
-                  <td>12 de Abril del 2019</td>
-                </tr>
-              </tbody>
-              <tfoot>
-
-              </tfoot>
-            </table>
-        <h1>Pagos (Abonos)</h1>
-		  <table cellspacing="0" cellpadding="0" class="bordered">
-              <thead>
-              <tr>
-                <th align="left">Concepto</th>
-                <th>Descripción</th>
-                <th >Fecha</th>
-              </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Abono</td>
-                  <td>Abono de $2,000.00 MXN resta un saldo de $950.00</td>
-                  <td>13 de Abril del 2019</td>
-                </tr>
-              </tbody>
-              <tfoot>
-
-              </tfoot>
-            </table>
-        <h1>Liquidación</h1>
-		  <table cellspacing="0" cellpadding="0" class="bordered">
-              <thead>
-              <tr>
-                <th align="left">Concepto</th>
-                <th>Descripción</th>
-                <th >Fecha</th>
-              </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Finiquito</td>
-                  <td>Cliente realiza finiquito de $500.00</td>
-                  <td>14 de Abril del 2019</td>
-                </tr>
-              </tbody>
-              <tfoot>
-
-              </tfoot>
-            </table>
-      </div>
-      <div class="tab t7">
-        <h1>Actividades por Vencer</h1>
-		  <table cellspacing="0" cellpadding="0" class="bordered">
-              <thead>
-              <tr>
-                <th align="left">Concepto</th>
-                <th>Descripción</th>
-                <th >Fecha</th>
-				<th>Estatus</th>
-                <th></th>
-              </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Saldo Pendiente</td>
-                  <td>Cliente tiene saldo pendiente a 7 días de evento</td>
-                  <td>12 de Abril del 2019</td>
-                  <td>Abierto</td>
-                </tr>
-				   <tr>
-                  <td>Abono</td>
-                  <td>Cliente lleva más de (3) meses sin abonar a su estado de cuenta</td>
-                  <td>12 de Abril del 2019</td>
-                  <td>Abierto</td>
-                </tr>
-
-              </tbody>
-              <tfoot>
-
-              </tfoot>
-            </table>
-
-
-
-      </div>
-      <div class="tab t8">
-        <h1>Tareas</h1>
-        <ul>
-          <li><input type="checkbox"/> Poner Fierro</li>
-          <li><input type="checkbox"/> Primer baño de garrapatas</li>
-        </ul>
-      </div>
-      <div class="tab t10">
-		<h1>Control de Actividades</h1>
-		  <table cellspacing="0" cellpadding="0" class="bordered">
-              <thead>
-              <tr>
-                <th>(+)</th>
-                <th align="left">Actividad</th>
-                <th>Frecuencia</th>
-                <th >Alerta</th>
-				<th>Notificar</th>
-                <th></th>
-              </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td>Estado de Cuenta</td>
-                  <td align="center">
-				  	<select><option>Mensual</option><option>Quincenal</option></select>
-				  </td>
-                  <td align="center"><input type="checkbox" /></td>
-                  <td></td>
-                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-                </tr>
-				<tr>
-                  <td></td>
-                  <td>Actividad Programada</td>
-                  <td align="center">
-				  	<select><option>7 Días Antes</option><option>1 Día Antes</option></select>
-				  </td>
-                  <td align="center"><input type="checkbox" /></td>
-                  <td></td>
-                  <td align="center"><a href="#">editar</a>  <a href="#">eliminar</a></td>
-                </tr>
-
-              </tbody>
-              <tfoot>
-
-              </tfoot>
-            </table>
-      </div>
-
-
-    </div>
 
     </section>
 
+
   </section> <!-- /panel -->
-  </main>
-
-
-  <script>
-  var objCliente;
-  $(document).ready(function(e){
-  objCliente = new App.Cliente();
-  objDatagrid.execute(
-      { ctrl : "cliente",
-        data: { exec : "getClientes" },
-        callback: function(r){
-          objCliente.data = r.json.data;
-          var data = r.json.data;
-          var buffer = '';
-          for(var i=0;i<data.length;i++){
-            buffer += '<tr><td>'+data[i].id+'</td><td>'+data[i].nombre+'</td></tr>';
-
-          }
-          console.log(buffer);
-          $("#tblClientes > tbody").html(buffer);
-        }
+</main>
+<script>
+App.onReady = function(){
+  Page = {
+    data : null,
+    table : $("#tblClientes"),
+    init: function(){
+      var _self = this;
+      objDAO.execute("cliente",{ exec : "getClientes"},function(e){
+        _self.data = e.json.data;
+        _self.mounted();
       });
-});
-  </script>
-
-
+    },
+    mounted: function(){
+      var _self = this;
+      objDatagrid.setTable(_self.table,_self.data);
+      objDatagrid.renderTable(_self.data);
+    }
+  }
+  Page.init();
+};
+</script>
 
 {{> footer}}

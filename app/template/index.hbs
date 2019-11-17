@@ -1,16 +1,50 @@
 {{> head}}
-{{> header}}
+  <div id="notice" class="error">
+ <p>Usuario y/o contraseña invalido.</p>
+ </div>
+ <main id="login">
+   <div class="logo"><img src="img/runnertopia-logo-login.png" /></div>
+   <div class="row">
+     <div class="col left"></div>
+     <div class="col right">
+       <div class="auth">
+         <div class="table">
+           <div class="tr">
+                <div class="login">
+                  <form id="formAuth" name="formAuth" data-ctrl="auth" class="onReady">
+                    <h1>Iniciar Sesión</h1>
+                    <div class="input">
+                      <input type="text" id="email" name="email" value="" placeholder="E-mail" class="txt required">
+                      <span class="required">Requerido</span>
+                    </div>
+                    <div class="input">
+                      <input type="text" id="pass" name="pass" value="" placeholder="Contraseña" class="txt required">
+                      <span class="required">Requerido</span>
+                    </div>
+                    <p><a href="/recuperar-contrasena">Recuperar Contraseña</a></p>
+                    <br />
+                    <a href="javascript:void(0)" class="btn onClick" data-exec="auth">Ingresar</a>
+                  </form>
 
-  <main id="app">
-   {{> sidebar}}
-    <section class="panel">
-    <section id="animal" class="page cliente">
-	<div class="breadcrumb"><h5>Home &raquo; Ganado</h5></div>
+                  <form id="formRecover" name="formRecover" data-ctrl="auth" class="hidden">
+                    <h1>Recuperar Contraseña</h1>
+                    <div class="input">
+                      <input type="text" id="email" name="email" value="" placeholder="E-mail" class="txt required">
+                      <span class="required">Requerido</span>
+                    </div>
+                    <a href="javascript:void(0)" class="btn onClick" data-exec="recover">Aceptar</a>
+                  </form>
 
-    
-    
-
-  </section> <!-- /panel -->
-  </main>
+                </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </main>
+ <script>
+ var objApp;
+ $(document).ready(function(e){ objApp = new App.Auth(); });
+ </script>
 
 {{> footer}}

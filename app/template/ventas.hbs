@@ -16,7 +16,62 @@
     </div>
     <div class="tab t1 active">
 
-      <h1><i class="fas fa-pencil-alt"></i> Registro de Ventas</h1>
+      <div class="row">
+        <div class="col"></div>
+          <div class="col">
+
+
+            <style>
+            .pos { min-height: 250px; margin-bottom: 15px; margin-top: -38px; }
+            .pos table { background-color: #fff;}
+            .pos .search { margin-bottom: 5px; margin-top: 20px; text-align: right;}
+            .pos .search input { max-width: 350px; display: inline-block;}
+            </style>
+            <div class="pos">
+
+              <div id="servicios" class="search">
+              <input type="text" placeholder="Búsqueda..." id="servicios" name="servicios" class="isRequired isAutoComplete search" />
+              <div id="lst_servicios" name="lst_servicios" class="select">
+                <ul class="list"></ul>
+              </div>
+              </div>
+
+              <table id="tblOrden" name="tblOrden" cellpadding="0" cellspacing="0" class="bordered">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Cantidad</th>
+                  <th>Descripción</th>
+                  <th>Fecha Evento</th>
+                  <th>Precio</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </div>
+
+            <table align="right">
+              <tr>
+                <td>Total</td>
+                <td><span class="total">$0.00</span></td>
+              </tr>
+              <tr>
+                <td>Anticipo</td>
+                <td>$0.00</td>
+              </tr>
+              <tr>
+                <td>Saldo</td>
+                <td>$0.00</td>
+              </tr>
+            </table>
+
+
+          </div>
+      </div>
+
       <form id="frmCliente" name="frmCliente" data-model="cliente">
 
 
@@ -77,52 +132,7 @@
 
             </div>
             <div class="col">
-              <style>
-              .pos { min-height: 250px; margin-bottom: 15px; margin-top: -38px; }
-              .pos table { background-color: #fff;}
-              .pos .search { margin-bottom: 5px; margin-top: 20px; text-align: right;}
-              .pos .search input { max-width: 350px; display: inline-block;}
-              </style>
-              <div class="pos">
 
-                <div id="servicios" class="search">
-                <input type="text" placeholder="Búsqueda..." id="servicios" name="servicios" class="isRequired isAutoComplete search" />
-                <div id="lst_servicios" name="lst_servicios" class="select">
-                  <ul class="list"></ul>
-                </div>
-                </div>
-
-                <table id="tblOrden" name="tblOrden" cellpadding="0" cellspacing="0" class="bordered">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Cantidad</th>
-                    <th>Descripción</th>
-                    <th>Fecha Evento</th>
-                    <th>Precio</th>
-                  </tr>
-                  </thead>
-                  <tbody></tbody>
-                  <tfoot>
-
-                  </tfoot>
-                </table>
-              </div>
-
-              <table align="right">
-                <tr>
-                  <td>Total</td>
-                  <td><span class="total">$0.00</span></td>
-                </tr>
-                <tr>
-                  <td>Anticipo</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr>
-                  <td>Saldo</td>
-                  <td>$0.00</td>
-                </tr>
-              </table>
 
             </div>
 

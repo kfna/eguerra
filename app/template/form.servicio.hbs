@@ -1,8 +1,7 @@
 <div class="panel window">
   <div class="tabs"><a href="#" class="tref active" data-idx="1">Catálogo</a></a></div>
   <div class="tab t1 active">
-    <h1><i class="fas fa-pencil-alt"></i> Registro de Articulo</h1>
-
+    <br />
     <form id="frmServicio" name="frmServicio" data-model="servicio">
       <div class="row c2">
         <div class="col">
@@ -14,6 +13,64 @@
           <input type="text" placeholder="$0.00 MXN" id="costo" name="costo" class="isRequired" />
         </div>
       </div>
+
+      <div class="row c2">
+        <div class="col">
+          <label>Tipo</label>
+          <select>
+            <option value="single">Unitario</option>
+            <option value="bundle">Paquete</option>
+          </select>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+
+        <br />
+
+      <div id="paquete" class="row full">
+        <div class="col">
+          <div class="form-datagrid">
+            <div class="search">
+              <input id="search" type="text" placeholder="Búsqueda de productos y servicios..." autocomplete="off" />
+              <div class="autocomplete">
+                <div class="result">
+                  <ul id="servicios">
+                    <li><a href="#">Opcion 1</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="overflow">
+              <table id="tblPaquete" cellpadding="0" cellspacing="0" class="bordered">
+                <thead>
+                  <tr>
+                    <th align="left">Concepto</th>
+                    <th >Costo</th>
+                    <th>
+
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                  <tr><td align="center"></td><td align="center"></td></tr>
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
       <div class="row actions">
         <div class="col"><a id="btnSave" href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
       </div>
@@ -23,9 +80,65 @@
 </div>
 
 <script>
+
   Form = {
     data : null,
-    init: function(){ var _self = this;},
+    servicios: null,
+    paquete: [],
+    init: function(){
+      var _self = this;
+
+      objDAO.execute("servicio",{ exec : "getServicios"},function(e){
+        _self.servicios = e.json.data;
+        var buffer ='';
+        for(var i=0;i<_self.servicios.length;i++){
+          buffer += '<li class="nombre"><a href="javascript:void(0)" data-idx="'+i+'">'+_self.servicios[i].servicio+'</a></li>';
+        }
+        $("ul#servicios").html(buffer);
+        $("#search").focus(function(){ $(".autocomplete").fadeIn(); });
+        $("#search").blur(function(){ $(".autocomplete").fadeOut(); });
+        $("ul#servicios li a").click(function(){
+          var id = $(this).data("idx");
+          _self.paquete.push(_self.servicios[id]);
+          _self.render();
+        })
+
+
+        _self.mounted();
+      });
+
+      $("select").on("change",function(){
+        if($(this).val()=="bundle"){
+          $("#paquete").show();
+        }else{
+          $("#paquete").hide();
+
+        }
+      });
+
+
+    },
+    mounted: function(){
+      var _self = this;
+    },
+    render: function(){
+      var _self = this;
+      var buffer = '';
+      var total = 0;
+      for(i=0;i<_self.paquete.length;i++){
+        buffer +='<tr><td>'+_self.paquete[i].servicio+'</td><td><input type="text" placeholder="$'+_self.paquete[i].costo+'" class="small" /></td><td align="center"><a href="#">eliminar</a></td></tr>';
+      }
+
+      $("#tblPaquete > tbody").html(buffer);
+    },
   }
   Form.init();
 </script>
+<style>
+#paquete { display: block; }
+.search { position: relative;}
+.autocomplete { position: absolute; display: none;max-width: 300px; min-width: 400px; border: #ccc solid 1px; height: 150px; background-color: #fff; top: 36px; overflow: scroll; box-shadow: 0px 0px 5px rgba(0,0,0,.15); display: none;}
+.autocomplete ul li a { font-size:12px; background-color: #fbfbfb; text-indent: 15px; padding-top: 7px; padding-bottom: 7px; display: block; color: #333;}
+.autocomplete ul li a:hover { background-color: #e4e4e4;}
+input.small { max-width: 80px; height: 20px; margin: auto;}
+</style>

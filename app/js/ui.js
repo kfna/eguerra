@@ -1,7 +1,10 @@
 /* KFNA - Web App */
 var App = App || {};
 
-App.UI = function(){ this.init(); };
+App.UI = function(){
+  this.modalParams = [];
+  this.init();
+};
 
 App.UI.prototype = {
   init: function(){
@@ -28,15 +31,24 @@ App.UI.prototype = {
 
   },
   modal:function(e,data){
-
+    var _self = this;
     var src = $(e).data("src")+".html";
+    var id = $(e).data("id");
+    _self.modalParams = [];
+    _self.modalParams.push(id);
     $('#modal .window').hide();
-    $('#modal .window').load(src,function(){
+    var ts = Math.round((new Date()).getTime() / 1000);
+    $('#modal .window').load(src+"?ts="+ts,function(){
       $("#modal").show();
       $("#modal .window").fadeIn();
+      Form.init();
     });
 
 
+  },
+  getModalParams: function(){
+    var _self = this;
+    return _self.modalParams;
   },
   modalUpdate: function(e){
     var _self = this;
