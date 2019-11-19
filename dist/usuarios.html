@@ -22,7 +22,7 @@
  <header>
     <div class="row">
       <div class="col left">
-        <ul class="search"><i class="fas fa-search"></i><input type="text" placeholder="Búsqueda..."/></div>
+        <ul class="search"><i class="fas fa-search"></i><input type="text" /></div>
       <div class="col right">
         <ul>
           <li>
@@ -46,7 +46,7 @@
       <h1>estudio<span>eguerra</h1>
       <div class="utils">
         <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
-        <a href="#" title="Mapa"><i class="fas fa-calendar"></i></a>
+        <a href="calendario.html" title="Mapa"><i class="fas fa-calendar"></i></a>
       </div>
     </div>
     <div class="user">
@@ -97,129 +97,80 @@
     </nav>
   </section>
   <section class="panel">
-    <section id="almacen" class="page cliente">
-	<div class="breadcrumb"><h5>Home &raquo; Administración de Articulos</h5></div>
-    <script>
-    $(document).ready(function(){
-      $(".tabs a").click(function(){
-        $(".tabs a").removeClass("active");
-        $(this).addClass("active");
-        var idx = $(this).data("idx");
-        $(".tab").removeClass("active");
-        $(".tab.t"+idx).addClass("active");
-      });
-    });
-    </script>
-    <div class="panel window">
-      <div class="tabs"><a href="#" class="tref active" data-idx="1">Catálogo</a></a></div>
-      <div class="tab t1 active">
-        <h1><i class="fas fa-pencil-alt"></i> Registro de Articulo</h1>
-        <form id="frmAlmacen" name="frmAlmacen" data-model="almacen">
-          <div class="row c3">
-            <div class="col">
-              <label>Nombre de Articulo</label>
-              <input type="text" placeholder="Nombre" id="articulo" name="articulo" class="isRequired" />
-            </div>
-            <div class="col">
-              <label>Unidad</label>
-              <input type="text" placeholder="(Ej. kg,lts,pieza,lote)" id="unidad" name="unidad" class="isRequired" />
-            </div>
-            <div class="col">
-              <label>Código de Barras</label>
-              <input type="text" placeholder="" id="codigo" name="codigo" class="isRequired" />
-            </div>
+    <section class="page">
 
+        <div class="container">
+          <div class="row head">
+            <div class="col">
+              <h2>Catálogo de<span> Usuarios</span></h2>
+            </div>
+            <div class="col aright">
+              <a href="#" class="btn add onClick" data-exec="modal" data-src="form.usuario">+</a>
+            </div>
           </div>
 
-          <div class="row c2">
-            <div class="col">
-              <label>Proveedor</label>
-              <div class="dropdown">
-                <a href="#"><i class="far fa-plus-square"></i></a>
-                <h5>(Seleccione una Opción)</h5>
-                <div class="option">
-                <input type="text" id="dsearch" name="dsearch" />
-                <ul>
-                  <li class="title">Medicamentos</li>
-                  <li value="1">Penicilina</li>
-                  <li value="2">Mejoralito</li>
-                  <li value="3">Penicilina</li>
-                  <li value="4">Mejoralito</li>
-                  <li value="5">Penicilina</li>
-                  <li value="6">Mejoralito</li>
-                  <li value="7">Penicilina</li>
-                  <li value="8">Mejoralito</li>
-                  <li value="9">Penicilina</li>
 
-                </ul>
+          <div class="datagrid">
+            <div class="actions">
+              <div class="row">
+                <div class="col">
+                  <select><option>25</option><option>50</option><option>100</option></select>
                 </div>
-                <input type="hidden" id="id_proveedor" name="id_proveedor" />
+                <div class="col aright">
+                  <label><input id="search" name="search" type="text" class="" placeholder="Búsqueda..." /></label>
+                </div>
               </div>
-              <script>
-                $(document).ready(function(){
-                    $(".dropdown h5").click(function(){
-                      $(this).parent().find(".option").slideToggle();
-                    });
-                    $(".dropdown .option ul li").click(function(){
-                      var val = { value: $(this).val(),text: $(this).html() };
-                      $(this).parents().find(".option").slideUp();
-                      $(this).parents().find("input[type='hidden']").val(val.value);
-                      $(this).parents().find("h5").html(val.text);
-                    });
-                });
-              </script>
-
             </div>
-            <div class="col"></div>
-          </div>
-
-          <div class="row actions">
-            <div class="col"><a href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
-          </div>
-
-          <div class="row">
-            <table id="tblAlmacen" cellpadding="0" cellspacing="0" class="bordered onLoad" data-exec="getAlmacenes">
+            <table id="tblUsuarios" cellpadding="0" cellspacing="0" class="bordered" data-ctrl="usuario" data-search="nombre">
               <thead>
                 <tr>
-                  <th>No.</th>
-                  <th>Almacen</th>
-                  <th>Descripción</th>
+                  <th>Cliente No.</th>
+                  <th>Nombre</th>
+                  <th>Tel.</th>
+                  <th>Tel. Móvil</th>
                   <th></th>
                 </tr>
               </thead>
-                <tbody></tbody>
-                <tfoot></tfoot>
-              </table>
+              <tbody>
+                <tr data-id="{id}">
+                  <td align="center">{id}</td>
+                  <td align="center">{nombre}</td>
+                  <td align="center">{email}</td>
+                  <td align="center"><a href="cliente.html?id={id}">editar</a> | <a href="javascript:void(0)" class="onClick" data-exec="delete">eliminar</a></td>
+                </tr>
+              </tbody>
+              <tfoot></tfoot>
+            </table>
+            <div class="pagination"></div>
           </div>
+        </div>
 
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    var objAnimal;
-    $(document).ready(function(e){
-		objAnimal = new App.Animal();
-		objDatagrid.execute(
-        { ctrl : "almacen",
-          data: { exec : "getAlmacenes" },
-          callback: function(r){
-            var data = r.json.data;
-			  console.log(data);
-            var buffer = '';
-            for(var i=0;i<data.length;i++){
-              buffer += '<tr><td align="center">'+data[i].id+'</td><td align="center">'+data[i].almacen+'</td><td align="center">'+data[i].descripcion+'</td><td>E | E</td></tr>';
-            }
-            console.log(buffer);
-            $("#tblAlmacen > tbody").html(buffer);
-          }
-        });
-	});
-    </script>
 
   </section> <!-- /panel -->
-  </main>
+</main>
+<script>
+App.onReady = function(){
+  Page = {
+    data : null,
+    table : $("#tblUsuarios"),
+    init: function(){
+      var _self = this;
+      objDAO.execute("usuario",{ exec : "getUsuarios"},function(e){
+        _self.data = e.json.data;
+        _self.mounted();
+      });
+    },
+    mounted: function(){
+      var _self = this;
+      objDatagrid.setTable(_self.table,_self.data);
+      objDatagrid.renderTable(_self.data);
+    }
+  }
+  Page.init();
+};
+</script>
 
  </body>
  </html>

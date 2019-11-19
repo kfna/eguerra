@@ -1,0 +1,96 @@
+<div class="panel window">
+  <div class="tabs">
+    <a href="#" class="tref active" data-idx="1">Usuario</a></a>
+    <a href="#" class="tref" data-idx="2">Control de Asistencia</a></a>
+    <a href="#" class="tref" data-idx="3">Control de Módulos</a></a>
+  </div>
+  <div class="tab t1 active">
+    <br />
+    <form id="frmUsuario" name="frmUsuario" data-model="usuario">
+      <div class="row c2">
+        <div class="col">
+          <label>Nombre</label>
+          <input type="text" placeholder="" id="nombre" name="nombre" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>E-mail</label>
+          <input type="text" placeholder="" id="email" name="email" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row full">
+        <div class="col">
+          <label>Direccion</label>
+          <input type="text" placeholder="" id="direccion" name="direccion" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row c2">
+        <div class="col">
+          <label>Teléfono</label>
+          <input type="text" placeholder="" id="telefono" name="telefono" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>Tel. Movil</label>
+          <input type="text" placeholder="" id="movil" name="movil" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row c2">
+        <div class="col">
+          <label>Rol (Cargo)</label>
+          <select id="medio" name="medio">
+            <option value="administrador">Administrador</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Modalidad de Salario</label>
+          <select id="medio" name="medio">
+            <option value="sf">Sueldo Fijo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row c3">
+
+        <div class="col">
+          <label>Sueldo Base</label>
+          <input type="text" placeholder="$0.00" id="sbase" name="sbase" class="isRequired" />
+        </div>
+
+        <div class="col">
+          <label>Comisión %</label>
+          <input type="text" placeholder="%" id="comision" name="comision" class="isRequired" />
+        </div>
+
+        <div class="col">
+          <label>Salario Especial</label>
+          <input type="text" placeholder="$0.00" id="sespecial" name="sespecial" class="isRequired" />
+        </div>
+
+      </div>
+
+        <br />
+
+
+      <div class="row actions">
+        <div class="col"><a id="btnSave" href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+      </div>
+      <input type="hidden" id="id" name="id" value="" />
+    </form>
+  </div>
+
+  <div class="tab t2">
+    <p>Datagrid..</p>
+  </div>
+
+</div>
+
+<script>
+  Form = {
+    data : null,
+    init: function(){ var _self = this; },
+    mounted: function(){ var _self = this; },
+  }
+  Form.init();
+</script>

@@ -22,7 +22,7 @@
  <header>
     <div class="row">
       <div class="col left">
-        <ul class="search"><i class="fas fa-search"></i><input type="text" placeholder="Búsqueda..."/></div>
+        <ul class="search"><i class="fas fa-search"></i><input type="text" /></div>
       <div class="col right">
         <ul>
           <li>
@@ -46,7 +46,7 @@
       <h1>estudio<span>eguerra</h1>
       <div class="utils">
         <a href="#" title="Dashboard"><i class="far fa-chart-bar"></i></a>
-        <a href="#" title="Mapa"><i class="fas fa-calendar"></i></a>
+        <a href="calendario.html" title="Mapa"><i class="fas fa-calendar"></i></a>
       </div>
     </div>
     <div class="user">
@@ -146,7 +146,7 @@
                   <td align="center">{fecha_evt}</td>
                   <td align="center">
                     <a href="javascript:void(0)" class="onClick" data-exec="modal" data-src="form.abono" data-id="{id}">abono</a>
-                    <a href="javascript:void(0)" class="onClick" data-exec="modalUpdate" data-src="form.articulo">ver</a>
+                    <a href="venta.html?id={id}" class="onClick" data-exec="modalUpdate" data-src="form.articulo">ver</a>
                   </td>
                 </tr>
               </tbody>

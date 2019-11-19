@@ -1,0 +1,161 @@
+{{> head}}
+{{> header}}
+
+<main id="app">
+  {{> sidebar}}
+  <section class="panel">
+    <section class="page">
+
+        <div class="container">
+          <div class="row head">
+            <div class="col">
+              <h2>Agenda de<span> Servicios</span> - 16 de Noviembre del 2019</h2>
+            </div>
+            <div class="col aright">
+              <a href="#" class="btn add onClick" data-exec="modal" data-src="form.cliente"><i class="fas fa-calendar"></i></a>
+            </div>
+          </div>
+
+
+          <div class="datagrid">
+            <div class="actions">
+              <div class="row">
+                <div class="col">
+                  <label>Filtrar por Servicio</label>
+                  <select>
+                    <option>Seleccione un Servicio</option>
+                    <option>SECUENCIA EN CD ILIMITADA XV</option>
+                  </select>
+                </div>
+                <div class="col aright">
+                  <label><input id="search" name="search" type="text" class="" placeholder="Búsqueda por Cliente" /></label>
+                </div>
+              </div>
+            </div>
+            <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered">
+              <thead>
+                <tr>
+                  <th>CANT</th>
+                  <th>SERVICIO</th>
+                  <th>UBICACIÓN</th>
+                  <th>FECHA</th>
+                  <th>HORA</th>
+                  <th>ENTREGA</th>
+                  <th>ESTATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-id="{id}">
+                  <td colspan="7" align="center"><strong>ALICIA GARCÍA MONTEJO (No. Cliente 000000)</strong></td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">SECUENCIA EN CD ILIMITADA XV</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">FOTOGRAFIA DIGITAL 11X14 CON PORTARETRATO</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">PHOTOBOOK 9X12 (10 HOJAS) (60 FOTOS)</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">BIOMBO</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">BANER</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">MARCO DE FIRMAS 20X30</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">PESTAÑAS POSTIZAS</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">VIDEO DIGITAL XV (1 DVD EDITADO)</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+                <tr data-id="{id}">
+                  <td colspan="7" align="center"><strong>ARTURO MARTINEZ (No. Cliente 000000)</strong></td>
+                </tr>
+                <tr data-id="{id}">
+                  <td align="center">1</td>
+                  <td align="center">MARCO CHOCOLATE 16X20</td>
+                  <td align="center">n/d</td>
+                  <td align="center">16/11/2019</td>
+                  <td align="center">n/d</td>
+                  <td align="center">n/d</td>
+                  <td align="center">PENDIENTE</td>
+                </tr>
+              </tbody>
+              <tfoot></tfoot>
+            </table>
+            <div class="pagination"></div>
+          </div>
+        </div>
+
+    </section>
+
+
+  </section> <!-- /panel -->
+</main>
+<script>
+App.onReady = function(){
+  Page = {
+    data : null,
+    table : $("#tblClientes"),
+    init: function(){
+      $("#tblClientes tbody").fadeIn();
+    },
+    mounted: function(){   }
+  }
+  Page.init();
+};
+</script>
+
+{{> footer}}

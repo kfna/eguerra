@@ -1,8 +1,8 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 session_start();
-//require_once('../_class/class.transaccion.php');
-//$obj = new Transaccion();
+require_once('../_class/class.usuario.php');
+$obj = new Usuario();
 
 switch($_REQUEST['exec']){
   case "import_trans":
@@ -51,6 +51,14 @@ switch($_REQUEST['exec']){
 
     $json["data"] = $buffer;
     $json["totals"] = $totals;
+    $result = NULL;
+    $result['json'] = $json;
+    $result['status'] = 202;
+    echo json_encode($result);
+  break;
+  case "getUsuarios":
+    $usuarios = $obj->set_status(1)->getUsuario();
+    $json["data"] = $usuarios;
     $result = NULL;
     $result['json'] = $json;
     $result['status'] = 202;

@@ -1,0 +1,67 @@
+<div class="panel window">
+  <div class="tabs"><a href="#" class="tref active" data-idx="1">Catálogo</a></a></div>
+  <div class="tab t1 active">
+    <br />
+    <form id="frmCliente" name="frmCliente" data-model="cliente">
+      <div class="row c2">
+        <div class="col">
+          <label>Nombre</label>
+          <input type="text" placeholder="" id="nombre" name="nombre" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>E-mail</label>
+          <input type="text" placeholder="" id="email" name="email" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row full">
+        <div class="col">
+          <label>Direccion</label>
+          <input type="text" placeholder="" id="direccion" name="direccion" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row c2">
+        <div class="col">
+          <label>Teléfono</label>
+          <input type="text" placeholder="" id="telefono" name="telefono" class="isRequired" />
+        </div>
+        <div class="col">
+          <label>Tel. Movil</label>
+          <input type="text" placeholder="" id="movil" name="movil" class="isRequired" />
+        </div>
+      </div>
+
+      <div class="row c2">
+        <div class="col">
+          <label>Como se Entero?</label>
+          <select id="medio" name="medio">
+            <option value="fb">Facebook</option>
+            <option value="in">Instagram</option>
+            <option value="ex">expo</option>
+            <option value="rec">Recomendación</option>
+          </select>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+
+        <br />
+
+
+      <div class="row actions">
+        <div class="col"><a id="btnSave" href="javascript:void(0)" data-exec="save" class="btn onClick">Guardar</a></div>
+      </div>
+      <input type="hidden" id="id" name="id" value="" />
+    </form>
+  </div>
+</div>
+
+<script>
+  Form = {
+    data : null,
+    init: function(){ var _self = this; },
+    mounted: function(){ var _self = this; },
+  }
+  Form.init();
+</script>

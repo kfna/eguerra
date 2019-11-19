@@ -1,0 +1,305 @@
+{{> head}}
+{{> header}}
+
+<main id="app">
+  {{> sidebar}}
+  <section class="panel">
+    <section class="page">
+
+
+      <div class="row full">
+        <div class="col">
+          <div class="container">
+            <h2>Detalle de <span> Venta</span></h2>datagrid">
+
+              <table id="tblVentas" cellpadding="0" cellspacing="0" class="bordered" data-ctrl="venta" data-search="cliente">
+                <thead>
+                  <tr>
+                    <th>Folio</th>
+                    <th>Cliente</th>
+                    <th>Vendedor</th>
+                    <th>Total</th>
+                    <th>Abonado</th>
+                    <th>Saldo</th>
+
+                    <th>Días Restantes</th>
+                    <th>Fecha Evento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-id="1" class="red">
+                  <td align="center">24022</td>
+                  <td align="center"><strong>Rogelio Ramiro Gonzalez Ramirez</strong></td>
+                  <td align="center">Luis Alfonso Cruz Rodriguez</td>
+                  <td align="center">$20,800.00</td>
+                  <td align="center">$0.00</td>
+                  <td align="center"><strong>$20,800.00</strong></td>
+                  <td align="center">10</td>
+                  <td align="center">29-NOV-2019 </td>
+
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col c4">
+          <div class="container">
+          <h2>Detalle de <span> Contrato</span></h2>
+          <style>
+          .page .row .col { padding: 10px; vertical-align: top;}
+          #contrato {  border: #e4e4e4 solid 1px; }
+          #contrato tr td { border-bottom: #e4e4e4 solid 1px; text-indent: 10px; padding-top: 0px; padding-bottom: 0px;}
+          #contrato ul li { display: block;}
+          #contrato ul li { border-bottom: #e4e4e4 solid 1px; font-size: 0; margin-bottom: 2px;}
+          #contrato ul li:last-child { border-bottom: 0; }
+          #contrato ul li:hover { background-color: #e4e4e4;}
+          #contrato ul li label { display: inline-block; width: 25%; vertical-align: middle; font-size:12px;}
+          #contrato ul li input { display: inline-block; width: 65%;height: 20px; vertical-align: middle; font-size:12px;}
+          table h4 { text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: .07em;
+    background-color: #ecf0f2;
+    padding: 12px; margin:0;
+}
+.col.c4 { width: 40%;}
+.col.c6 { width: 60%;}
+          </style>
+          <table id="contrato" width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <td>
+                  <h4>Telefonos</h4>
+                  <ul>
+                    <li><label>Telefonos Casa:</label> <input type="text"></li>
+                    <li><label>Tel. Moviles:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Portada</h4>
+                  <ul>
+                    <li><label>Nombre de Portada:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Observaciones</h4>
+                  <ul>
+                    <li><label>Datos Adicionales:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Salida de Casa</h4>
+                  <ul>
+                    <li><label>Hora:</label> <input type="text"></li>
+                    <li><label>Dirección:</label> <input type="text"></li>
+                    <li><label>Entre Calles:</label> <input type="text"></li>
+                    <li><label>Colonia:</label> <input type="text"></li>
+                    <li><label>Referencia:</label> <input type="text"></li>
+                    <li><label>Municipio:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Locación</h4>
+                  <ul>
+                    <li><label>Hora:</label> <input type="text"></li>
+                    <li><label>Dirección:</label> <input type="text"></li>
+                    <li><label>Entre Calles:</label> <input type="text"></li>
+                    <li><label>Colonia:</label> <input type="text"></li>
+                    <li><label>Referencia:</label> <input type="text"></li>
+                    <li><label>Municipio:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Iglesia</h4>
+                  <ul>
+                    <li><label>Hora:</label> <input type="text"></li>
+                    <li><label>Dirección:</label> <input type="text"></li>
+                    <li><label>Entre Calles:</label> <input type="text"></li>
+                    <li><label>Colonia:</label> <input type="text"></li>
+                    <li><label>Referencia:</label> <input type="text"></li>
+                    <li><label>Municipio:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Recepción</h4>
+                  <ul>
+                    <li><label>Hora:</label> <input type="text"></li>
+                    <li><label>Dirección:</label> <input type="text"></li>
+                    <li><label>Entre Calles:</label> <input type="text"></li>
+                    <li><label>Colonia:</label> <input type="text"></li>
+                    <li><label>Referencia:</label> <input type="text"></li>
+                    <li><label>Municipio:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4>Locación Info</h4>
+                  <ul>
+                    <li><label>Hora:</label> <input type="text"></li>
+                    <li><label>Dirección:</label> <input type="text"></li>
+                    <li><label>Entre Calles:</label> <input type="text"></li>
+                    <li><label>Colonia:</label> <input type="text"></li>
+                    <li><label>Referencia:</label> <input type="text"></li>
+                    <li><label>Municipio:</label> <input type="text"></li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <div class="col c6">
+          <div class="container">
+            <h2>Agenda <span> Evento</span></h2>
+            <style>
+            .toverflow { position:relative; overflow: scroll;}
+            </style>
+            <div class="toverflow">
+            <div class="datagrid">
+              <style>
+              #tblClientes { font-size: 10px !important;}
+              </style>
+              <table id="tblClientes" cellpadding="0" cellspacing="0" class="bordered">
+                <thead>
+                  <tr>
+                    <th>CANT</th>
+                    <th>SERVICIO</th>
+                    <th>UBICACIÓN</th>
+                    <th>FECHA</th>
+                    <th>HORA</th>
+                    <th>ENTREGA</th>
+                    <th>ESTATUS</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">SECUENCIA EN CD ILIMITADA XV</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">FOTOGRAFIA DIGITAL 11X14 CON PORTARETRATO</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">PHOTOBOOK 9X12 (10 HOJAS) (60 FOTOS)</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">BIOMBO</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">BANER</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">MARCO DE FIRMAS 20X30</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">PESTAÑAS POSTIZAS</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+                  <tr data-id="{id}">
+                    <td align="center">1</td>
+                    <td align="center">VIDEO DIGITAL XV (1 DVD EDITADO)</td>
+                    <td align="center">n/d</td>
+                    <td align="center">16/11/2019</td>
+                    <td align="center">n/d</td>
+                    <td align="center">n/d</td>
+                    <td align="center">PENDIENTE</td>
+                  </tr>
+
+                </tbody>
+                <tfoot></tfoot>
+              </table>
+
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </section>
+
+
+  </section> <!-- /panel -->
+</main>
+<script>
+App.onReady = function(){
+  Page = {
+    data : null,
+
+    init: function(){
+      var _self = this;
+      $("#tblClientes tbody").fadeIn();
+      $("#tblVentas tbody").fadeIn();
+
+    },
+    mounted: function(){
+      var _self = this;
+
+    }
+  }
+  Page.init();
+};
+</script>
+
+{{> footer}}
